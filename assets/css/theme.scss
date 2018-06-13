@@ -1,0 +1,227 @@
+@import "components/variables";
+@import "components/icons";
+@import "components/fonts";
+
+html, body {
+  font-size: $font-size;
+  margin: 0;
+  font-family: "Fivo Sans", sans-serif;
+  width: 100%;
+  max-width: 100%;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
+a {
+  color: $theme-white;
+  text-decoration: underline;
+}
+
+.vinyl {
+  width: 100%;
+
+  img {
+    width: 100%;
+    height: auto;
+    display: block;
+    margin-bottom: -1px;
+  }
+}
+
+.resources {
+  background-color: $theme-red;
+  width: 100%;
+  position: relative;
+
+  &::before {
+    background-color: $theme-blue;
+    display: block;
+    content: ' ';
+    width: 5vw;
+    height: 75%;
+    position: absolute;
+    top: -25%;
+    left: 0;
+  }
+
+  .inner {
+    background-color: $theme-blue;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 6rem;
+    width: 75vw;
+    margin-left: 25vw;
+    position: relative;
+
+    &::before {
+      background-color: $theme-black;
+      display: block;
+      content: ' ';
+      width: 20vw;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: -20vw;
+    }
+
+    .card {
+      width: 50%;
+      padding-left: 4rem;
+      position: relative;
+
+      .header-icon {
+        max-width: 3rem;
+        height: 2.7rem;
+        position: absolute;
+        top: 0.3rem;
+        left: 0;
+      }
+
+      h3 {
+        color: $theme-white;
+        text-transform: uppercase;
+        font-size: 3.5rem;
+        line-height: 1;
+        font-family: "League Gothic", sans-serif;
+        margin: 0 0 0.5rem;
+      }
+
+      p {
+        margin: 0 0 2rem;
+        padding-right: 40%;
+        font-weight: $font-weight-medium;
+      }
+
+      &:last-of-type {
+        width: 100%;
+      }
+    }
+
+    > p {
+      color: $theme-white;
+      padding-left: 8%;
+      padding-right: 15%;
+      font-weight: $font-weight-light;
+      font-size: $font-size-huge;
+      line-height: 1.2;
+    }
+  }
+}
+
+.cta-wrapper {
+  width: 100%;
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+  text-align: center;
+  overflow: hidden;
+
+  .cta-button {
+    background-color: $theme-blue;
+    padding: 1rem;
+    text-transform: uppercase;
+    text-decoration: none;
+    display: inline-block;
+    line-height: 1;
+  }
+
+  .cta-elements {
+    width: 100%;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+    margin-top: 2rem;
+
+    .cta-element {
+      color: $theme-red;
+      padding-left: 3.8rem;
+      padding-right: 3.8rem;
+
+      p {
+        font-size: 5 * $font-size-big;
+        line-height: 1;
+        margin: 0;
+        font-family: "League Gothic", sans-serif;
+        text-transform: uppercase;
+      }
+
+      a {
+        font-size: $font-size-small;
+        color: $theme-blue;
+        text-decoration: none;
+        font-weight: $font-weight-bold;
+      }
+    }
+  }
+}
+
+footer {
+  background-color: $theme-black;
+  display: flex;
+  justify-content: normal;
+  align-items: stretch;
+  width: 100%;
+  color: $theme-white;
+  text-align: center;
+  padding-bottom: 2rem;
+
+  p {
+    margin: 0;
+    line-height: 1.2;
+  }
+
+  .imprint, .notices {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+    width: 50%;
+  }
+
+  .imprint {
+    background-color: $theme-blue;
+    font-weight: $font-weight-thin;
+
+    .strong {
+      font-weight: $font-weight-black;
+    }
+  }
+
+  .notices {
+    display: flex;
+    flex-wrap: wrap;
+    background-color: $theme-red;
+
+    .copyright, .origin {
+      width: 100%;
+    }
+
+    .copyright {
+      align-self: start;
+      font-weight: $font-weight-thin;
+    }
+
+    .origin {
+      align-self: end;
+      margin-top: auto;
+      font-weight: $font-weight-black;
+      line-height: 2;
+
+      .icon {
+        width: $font-size-huge;
+        height: $font-size-huge;
+        vertical-align: text-bottom;
+      }
+    }
+  }
+}

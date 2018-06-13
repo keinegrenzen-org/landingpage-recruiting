@@ -1,0 +1,57 @@
+@import "variables";
+
+@font-face {
+  font-family: "Fivo Sans";
+  src: url("/assets/fonts/FivoSans/FivoSans-Black.otf");
+  font-weight: $font-weight-black;
+}
+
+@font-face {
+  font-family: "Fivo Sans";
+  src: url("/assets/fonts/FivoSans/FivoSans-Heavy.otf");
+  font-weight: $font-weight-heavy;
+}
+
+@font-face {
+  font-family: "Fivo Sans";
+  src: url("/assets/fonts/FivoSans/FivoSans-Bold.otf");
+  font-weight: $font-weight-bold;
+}
+
+@font-face {
+  font-family: "Fivo Sans";
+  src: url("/assets/fonts/FivoSans/FivoSans-Medium.otf");
+  font-weight: $font-weight-medium;
+}
+
+@font-face {
+  font-family: "Fivo Sans";
+  src: url("/assets/fonts/FivoSans/FivoSans-Regular.otf");
+  font-weight: $font-weight-regular;
+}
+
+@font-face {
+  font-family: "Fivo Sans";
+  src: url("/assets/fonts/FivoSans/FivoSans-Light.otf");
+  font-weight: $font-weight-light;
+}
+
+@font-face {
+  font-family: "Fivo Sans";
+  src: url("/assets/fonts/FivoSans/FivoSans-Thin.otf");
+  font-weight: $font-weight-thin;
+}
+
+@font-face {
+  font-family: "League Gothic";
+  src: url("/assets/fonts/LeagueGothic/LeagueGothic-Regular.otf");
+  font-stretch: normal;
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: "League Gothic";
+  src: url("/assets/fonts/LeagueGothic/LeagueGothic-CondensedRegular.otf");
+  font-stretch: condensed;
+  font-weight: 400;
+}
