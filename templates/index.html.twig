@@ -12,25 +12,29 @@
     <body>
         <nav></nav>
         <header></header>
+        <div class="street-artist">
+            <img src="{{ 'images/vinyl.png' }}" title="Vinyl" alt="K&ouml;rbe voller Vinylplatten">
+        </div>
+        <div class="stats-prelude">
+            <a href="#ressourcen">Jetzt Mitmachen</a>
+        </div>
         <div class="stats">
             <p>
                 <span class="number">23</span>
-                <span class="bold">K&uuml;stler</span>
-                sind schon dabei
+                <span class="description">K&uuml;stler<br>sind schon<br>dabei</span>
             </p>
-            <p>
+            <p class="and">
                 &amp;
             </p>
             <p>
-                <span class="number">23</span>
-                <span class="bold">lieben</span>
-                es
+                <span class="number">657</span>
+                <span class="description">lieben<br>es</span>
             </p>
         </div>
         <div class="vinyl">
             <img src="{{ 'images/vinyl.png' }}" title="Vinyl" alt="K&ouml;rbe voller Vinylplatten">
         </div>
-        <div class="resources">
+        <div class="resources" id="ressourcen">
             <div class="inner">
                 <div class="title">
                     <h2>&numsp;Wir<br>brauchen</h2>
@@ -70,7 +74,7 @@
         <div class="cta-wrapper">
             <a class="cta-button" href="mailto:mitmachen@keinegrenzen.org">JETZT</a>
             <div class="cta-elements">
-                {% for i in 1..3 %}
+                {% for i in 0..2 %}
                     <div class="cta-element">
                         <p>
                             Teil des<br>

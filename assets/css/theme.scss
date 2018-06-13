@@ -30,20 +30,105 @@ a {
   text-decoration: underline;
 }
 
-.stats {
+.street-artist {
+  width: 100%;
+  position: relative;
 
+  img {
+    width: 100%;
+    height: auto;
+    display: block;
+    margin-top: -1px;
+    margin-bottom: -1px;
+    z-index: 10;
+    position: relative;
+  }
+}
+
+
+.stats-prelude {
+  width: 100%;
+  padding-top: 6rem;
+  padding-bottom: 2rem;
+  text-align: center;
+
+  a {
+    font-size: 2 * $font-size-huge;
+    color: $theme-black;
+    font-weight: $font-weight-heavy; // TODO
+    text-decoration: none;
+
+    &::before, &::after {
+      content: "×";
+      color: $theme-red;
+      margin: 0 1rem;
+      font-size: 3 * $font-size-huge;
+      font-weight: $font-weight-light;
+    }
+  }
+}
+
+.stats {
+  width: 100%;
+  background-color: $theme-blue;
+  padding-top: 2rem;
+  padding-bottom: 6rem;
+  position: relative;
+  display: flex;
+  flex-wrap: nowrap;
+  color: $theme-white;
+  justify-content: center;
+  align-items: center;
 
   &::after {
-    background-color: $theme-black;
+    background-color: $theme-blue;
     display: block;
     content: ' ';
-    width: 20vw;
-    height: 100%;
+    width: 5vw;
+    height: 150%;
     position: absolute;
-    top: 0;
-    left: -20vw;
+    top: 60%;
+    right: 0;
+    z-index: 20;
   }
 
+  .and {
+    font-size: 12rem;
+    color: $theme-blue;
+    text-shadow: -1px -1px 0 $theme-white, 1px -1px 0 $theme-white, -1px 1px 0 $theme-white, 1px 1px 0 $theme-white;
+    font-family: "League Gothic", sans-serif;
+  }
+
+  p {
+    text-align: left;
+    font-size: $font-size-huge;
+    margin: 0;
+    padding: 0 1rem;
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: flex-start;
+
+    .number {
+      font-family: "League Gothic", sans-serif;
+      font-weight: $font-weight-regular;
+      font-size: 12rem;
+      line-height: 1;
+      text-decoration: underline;
+      margin-right: 1rem;
+      display: block;
+    }
+
+    .description {
+      display: block;
+      font-size: 1.2 * $font-size-huge;
+      font-weight: $font-weight-thin;
+      margin-top: 1rem;
+
+      &:first-line {
+        font-weight: $font-weight-bold;
+      }
+    }
+  }
 }
 
 .vinyl {
@@ -54,6 +139,7 @@ a {
     width: 100%;
     height: auto;
     display: block;
+    margin-top: -1px;
     margin-bottom: -1px;
     z-index: 10;
     position: relative;
