@@ -30,14 +30,33 @@ a {
   text-decoration: underline;
 }
 
+.stats {
+
+
+  &::after {
+    background-color: $theme-black;
+    display: block;
+    content: ' ';
+    width: 20vw;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: -20vw;
+  }
+
+}
+
 .vinyl {
   width: 100%;
+  position: relative;
 
   img {
     width: 100%;
     height: auto;
     display: block;
     margin-bottom: -1px;
+    z-index: 10;
+    position: relative;
   }
 }
 
@@ -53,15 +72,20 @@ a {
     width: 5vw;
     height: 75%;
     position: absolute;
-    top: -25%;
+    top: -40%;
     left: 0;
+    z-index: 10;
   }
 
   .inner {
+    $title-height: 8rem;
+    $title-offset-x: 5.6rem;
+    $title-offset-y: 1.1rem;
+
     background-color: $theme-blue;
     display: flex;
     flex-wrap: wrap;
-    padding: 6rem;
+    padding: (6rem + $title-height + $title-offset-y) 6rem 6rem;
     width: 75vw;
     margin-left: 25vw;
     position: relative;
@@ -75,6 +99,36 @@ a {
       position: absolute;
       top: 0;
       left: -20vw;
+    }
+
+    .title {
+      transform: rotate(-10deg);
+      position: absolute;
+      top: -$title-offset-y;
+      left: -$title-offset-x;
+
+      &::after {
+        content: ' ';
+        display: block;
+        height: 2 * $title-height;
+        width: 1.3rem;
+        clip-path: polygon(0 0, 20% 0, 100% 100%, 0% 100%);
+        background-color: $theme-blue;
+        position: absolute;
+        top: 50%;
+        left: $title-offset-x - 1.5rem;
+        transform: rotate(10deg) translateY(-50%);
+      }
+
+      h2 {
+        font-family: "League Gothic", sans-serif;
+        text-transform: uppercase;
+        font-size: $title-height;
+        font-weight: $font-weight-regular;
+        line-height: 0.8;
+        color: $theme-white;
+        margin: 0;
+      }
     }
 
     .card {
@@ -96,6 +150,7 @@ a {
         font-size: 3.5rem;
         line-height: 1;
         font-family: "League Gothic", sans-serif;
+        font-weight: $font-weight-regular;
         margin: 0 0 0.5rem;
       }
 
@@ -112,7 +167,7 @@ a {
 
     > p {
       color: $theme-white;
-      padding-left: 8%;
+      padding-left: 4rem;
       padding-right: 15%;
       font-weight: $font-weight-light;
       font-size: $font-size-huge;
