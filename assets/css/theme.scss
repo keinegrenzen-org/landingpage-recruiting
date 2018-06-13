@@ -30,9 +30,64 @@ a {
   text-decoration: underline;
 }
 
-.street-artist {
+.container {
   width: 100%;
+}
+
+.benefits {
+  background-color: $theme-red;
+
+  .inner {
+    width: 80%;
+    margin-left: 20%;
+    background-color: $theme-white;
+    padding: 12rem;
+    display: flex;
+    justify-content: center;
+    flex-wrap: nowrap;
+
+    div {
+      width: 50%;
+
+      p {
+        margin: 0;
+        font-weight: $font-weight-regular;
+        padding-left: 2rem;
+
+        .normal {
+          font-family: "Fivo Sans", sans-serif;
+          font-size: $font-size-huge;
+          display: block;
+        }
+
+        .benefit {
+          font-family: "League Gothic", sans-serif;
+          color: $theme-blue;
+          font-size: 2.5 * $font-size-huge;
+          display: block;
+          text-transform: uppercase;
+          position: relative;
+
+          &::before {
+            content: "*";
+            position: absolute;
+            top: 0;
+            left: -2.5rem;
+            font-size: 6rem;
+          }
+        }
+      }
+
+      p + p {
+        margin-top: 2rem;
+      }
+    }
+  }
+}
+
+.street-artist {
   position: relative;
+  background-color: $theme-blue;
 
   img {
     width: 100%;
@@ -45,9 +100,7 @@ a {
   }
 }
 
-
 .stats-prelude {
-  width: 100%;
   padding-top: 6rem;
   padding-bottom: 2rem;
   text-align: center;
@@ -69,7 +122,6 @@ a {
 }
 
 .stats {
-  width: 100%;
   background-color: $theme-blue;
   padding-top: 2rem;
   padding-bottom: 6rem;
@@ -112,17 +164,16 @@ a {
       font-family: "League Gothic", sans-serif;
       font-weight: $font-weight-regular;
       font-size: 12rem;
-      line-height: 1;
-      text-decoration: underline;
       margin-right: 1rem;
       display: block;
+      line-height: 0.8;
+      border-bottom: 0.5rem solid $theme-white;
     }
 
     .description {
       display: block;
       font-size: 1.2 * $font-size-huge;
       font-weight: $font-weight-thin;
-      margin-top: 1rem;
 
       &:first-line {
         font-weight: $font-weight-bold;
