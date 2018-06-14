@@ -30,8 +30,73 @@ a {
   text-decoration: underline;
 }
 
+h1, h2, h3, h4, h5, h6 {
+  font-family: "League Gothic", sans-serif;
+  text-transform: uppercase;
+  font-weight: $font-weight-regular;
+  margin: 0;
+}
+
+p {
+  margin: 0;
+}
+
 .container {
   width: 100%;
+}
+
+.description {
+  $inner-delta-l: 35%;
+  $inner-delta-r: 15%;
+  $header-width: 4 * 0.4 * 8rem; // approx width of teh word "WÄRE" for a font size of 8rem
+
+  background-color: $theme-blue;
+  position: relative;
+
+  h2 {
+    font-size: 8rem;
+    position: absolute;
+    top: 50%;
+    left: calc(#{$inner-delta-l} - #{$header-width} + 2rem);
+    transform: rotate(-10deg) translateY(-50%);
+    color: $theme-white;
+    line-height: 1;
+    text-align: right;
+    display: block;
+    width: $header-width;
+  }
+
+  .inner {
+    width: 100% - $inner-delta-l - $inner-delta-r;
+    left: $inner-delta-l;
+    right: $inner-delta-r;
+    background-color: $theme-red;
+    padding: 6rem 4rem;
+    color: $theme-white;
+    font-size: 1.2 * $font-size-huge;
+    position: relative;
+  }
+
+  &::before, &::after {
+    position: absolute;
+    display: block;
+    content: ' ';
+    top: 0;
+  }
+
+  &::before {
+    background-color: $theme-black;
+    width: $inner-delta-l;
+    bottom: 6rem;
+    left: 0;
+  }
+
+  &::after {
+    background-color: $theme-red;
+    width: $inner-delta-r;
+    right: 0;
+    height: 6rem;
+  }
 }
 
 .benefits {
@@ -41,7 +106,7 @@ a {
     width: 80%;
     margin-left: 20%;
     background-color: $theme-white;
-    padding: 12rem;
+    padding: 8rem 12rem;
     display: flex;
     justify-content: center;
     flex-wrap: nowrap;
@@ -258,8 +323,6 @@ a {
       }
 
       h2 {
-        font-family: "League Gothic", sans-serif;
-        text-transform: uppercase;
         font-size: $title-height;
         font-weight: $font-weight-regular;
         line-height: 0.8;
@@ -283,10 +346,8 @@ a {
 
       h3 {
         color: $theme-white;
-        text-transform: uppercase;
         font-size: 3.5rem;
         line-height: 1;
-        font-family: "League Gothic", sans-serif;
         font-weight: $font-weight-regular;
         margin: 0 0 0.5rem;
       }
