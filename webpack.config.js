@@ -16,7 +16,7 @@ Encore
   .configureBabel(function (babelConfig) {
     babelConfig.presets[0][1].targets = {
       browsers: 'last 2 versions',
-      uglify: Encore.isProduction()
+      uglify: false
     }
   })
 

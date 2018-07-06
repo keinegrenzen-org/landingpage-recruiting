@@ -45,36 +45,153 @@ p {
   width: 100%;
 }
 
-.description {
-  $inner-delta-l: 35%;
-  $inner-delta-r: 15%;
-  $header-width: 4 * 0.4 * 8rem; // approx width of teh word "WÄRE" for a font size of 8rem
+.slogan {
+  $font-size-slogan: 3 * $font-size-huge;
+  $header-rotation: -10deg;
 
+  position: relative;
+  height: 6 * $font-size-slogan;
+  text-align: center;
+  font-size: $font-size-slogan;
+  color: $theme-white;
   background-color: $theme-blue;
+  overflow: hidden;
+
+  .text {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: rotate($header-rotation) translate(-50%, -49%);
+    line-height: 1;
+    padding: $font-size-slogan;
+
+    .smile {
+      height: $font-size-huge;
+      position: absolute;
+      bottom: $font-size-slogan;
+      right: 0;
+    }
+
+    .stars {
+      color: $theme-red;
+      line-height: 0.8;
+      position: absolute;
+      top: 0;
+    }
+
+    &::before {
+      display: block;
+      content: ' ';
+      position: absolute;
+      right: -20%;
+      bottom: 0;
+      background-color: $theme-black;
+      width: 100%;
+      height: 50%;
+      z-index: -1;
+      transform: rotate(-$header-rotation);
+    }
+
+  }
+
+  .outlines {
+    text-shadow: -1px -1px 0 $theme-white, 1px -1px 0 $theme-white, -1px 1px 0 $theme-white, 1px 1px 0 $theme-white;
+    color: $theme-black;
+  }
+
+  .small {
+    color: $theme-blue;
+    font-size: 3 * $font-size-huge;
+    line-height: 1;
+  }
+}
+
+.guitar-player {
   position: relative;
 
-  h2 {
-    font-size: 8rem;
+  img {
+    width: 100%;
+    height: auto;
+    display: block;
+    margin-top: -1px;
+    margin-bottom: -1px;
+    z-index: 10;
+    position: relative;
+  }
+}
+
+.project-description {
+  $inner-delta-l: 25vw;
+  $inner-delta-r: 15vw;
+  $header-font-size: 9rem;
+  $header-width: 4 * 0.4 * $header-font-size; // approx width of teh word "WÄRE" for a font size of 9rem
+  $header-rotation: -8deg;
+
+  position: relative;
+  background-color: $theme-blue;
+
+  .inner .title-clone > span,
+  .title {
+    font-size: $header-font-size;
     position: absolute;
-    top: 50%;
-    left: calc(#{$inner-delta-l} - #{$header-width} + 2rem);
-    transform: rotate(-10deg) translateY(-50%);
     color: $theme-white;
     line-height: 1;
     text-align: right;
     display: block;
+    font-family: "League Gothic", sans-serif;
+    font-weight: $font-weight-regular;
+    text-transform: uppercase;
     width: $header-width;
+    transform: rotate($header-rotation);
+  }
+
+  .title {
+    top: 50%;
+    left: calc(#{$inner-delta-l} - #{$header-width} + (1.4rem));
+    transform: rotate($header-rotation) translateY(-47%);
   }
 
   .inner {
-    width: 100% - $inner-delta-l - $inner-delta-r;
+    width: 100vw - $inner-delta-l - $inner-delta-r;
     left: $inner-delta-l;
     right: $inner-delta-r;
     background-color: $theme-red;
-    padding: 6rem 4rem;
+    padding: 8rem 4rem;
     color: $theme-white;
     font-size: 1.2 * $font-size-huge;
+    line-height: 1.2;
     position: relative;
+
+    .title-clone {
+      overflow: hidden;
+      position: absolute;
+    }
+
+    .title-clone-left {
+      background-color: $theme-blue;
+      width: $inner-delta-l;
+      left: -$inner-delta-l;
+      height: $header-font-size;
+      bottom: 0;
+
+      span {
+        right: 0;
+        left: calc(#{$inner-delta-l} - #{$header-width} + (0.2rem));
+        bottom: ($header-font-size / 2) - 1rem;
+      }
+    }
+
+    .title-clone-right {
+      width: 2rem;
+      height: $header-font-size;
+      bottom: ($header-font-size / 2) - 0.8rem;
+      left: 0;
+
+      span {
+        left: -$header-width;
+        bottom: 0;
+      }
+    }
   }
 
   &::before, &::after {
@@ -87,7 +204,7 @@ p {
   &::before {
     background-color: $theme-black;
     width: $inner-delta-l;
-    bottom: 6rem;
+    bottom: $header-font-size;
     left: 0;
   }
 
@@ -95,7 +212,7 @@ p {
     background-color: $theme-red;
     width: $inner-delta-r;
     right: 0;
-    height: 6rem;
+    height: $header-font-size;
   }
 }
 
@@ -103,10 +220,10 @@ p {
   background-color: $theme-red;
 
   .inner {
-    width: 80%;
-    margin-left: 20%;
+    width: 85%;
+    margin-left: 15%;
     background-color: $theme-white;
-    padding: 8rem 12rem;
+    padding: 8rem 10rem;
     display: flex;
     justify-content: center;
     flex-wrap: nowrap;
@@ -279,11 +396,32 @@ p {
     z-index: 10;
   }
 
-  .inner {
-    $title-height: 8rem;
-    $title-offset-x: 5.6rem;
-    $title-offset-y: 1.1rem;
+  $title-height: 8rem;
+  $title-offset-x: 5.6rem;
+  $title-offset-y: 1.1rem;
+  $before-inner-width: 20vw;
 
+  .before-inner {
+    background-color: $theme-black;
+    display: block;
+    content: ' ';
+    width: $before-inner-width;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 5vw;
+    z-index: 1;
+    overflow: hidden;
+
+    .title-clone {
+      transform: rotate(-10deg);
+      position: absolute;
+      top: -$title-offset-y;
+      left: calc(100% - 5.5rem);
+    }
+  }
+
+  .inner {
     background-color: $theme-blue;
     display: flex;
     flex-wrap: wrap;
@@ -292,42 +430,14 @@ p {
     margin-left: 25vw;
     position: relative;
 
-    &::before {
-      background-color: $theme-black;
-      display: block;
-      content: ' ';
-      width: 20vw;
-      height: 100%;
-      position: absolute;
-      top: 0;
-      left: -20vw;
-    }
-
     .title {
       transform: rotate(-10deg);
       position: absolute;
       top: -$title-offset-y;
       left: -$title-offset-x;
 
-      &::after {
-        content: ' ';
-        display: block;
-        height: 2 * $title-height;
-        width: 1.3rem;
-        clip-path: polygon(0 0, 20% 0, 100% 100%, 0% 100%);
-        background-color: $theme-blue;
-        position: absolute;
-        top: 50%;
-        left: $title-offset-x - 1.5rem;
-        transform: rotate(10deg) translateY(-50%);
-      }
-
-      h2 {
-        font-size: $title-height;
-        font-weight: $font-weight-regular;
-        line-height: 0.8;
-        color: $theme-white;
-        margin: 0;
+      .blue {
+        color: $theme-blue;
       }
     }
 
@@ -372,22 +482,36 @@ p {
       line-height: 1.2;
     }
   }
+
+  .before-inner, .inner {
+    .title-clone, .title > h2 {
+      font-size: $title-height;
+      font-weight: $font-weight-regular;
+      line-height: 0.8;
+      color: $theme-white;
+      margin: 0;
+      text-transform: uppercase;
+      font-family: "League Gothic", sans-serif;
+    }
+  }
 }
 
 .cta-wrapper {
   width: 100%;
-  padding-top: 4rem;
-  padding-bottom: 4rem;
+  padding-top: 6rem;
+  padding-bottom: 6rem;
   text-align: center;
   overflow: hidden;
 
   .cta-button {
     background-color: $theme-blue;
-    padding: 1rem;
+    padding: 1.5rem 1.5rem 1.2rem;
     text-transform: uppercase;
     text-decoration: none;
     display: inline-block;
     line-height: 1;
+    font-size: 1.2 * $font-size-huge;
+    font-weight: $font-weight-bold;
   }
 
   .cta-elements {
@@ -411,7 +535,7 @@ p {
       }
 
       a {
-        font-size: $font-size-small;
+        font-size: $font-size-big;
         color: $theme-blue;
         text-decoration: none;
         font-weight: $font-weight-bold;
@@ -433,6 +557,7 @@ footer {
   p {
     margin: 0;
     line-height: 1.2;
+    font-size: $font-size-big;
   }
 
   .imprint, .notices {
