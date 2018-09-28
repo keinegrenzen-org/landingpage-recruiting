@@ -66,151 +66,153 @@ p {
   width: 100%;
 }
 
-.slogan {
-  $font-size-slogan: 5 * $font-size-huge;
-  $header-rotation: -10deg;
+.fitti {
+  white-space: nowrap;
+  display: inline-block;
+}
 
-  position: relative;
-  height: 3 * $font-size-slogan;
-  text-align: center;
-  font-size: $font-size-slogan;
-  color: $theme-white;
-  background-color: $theme-blue;
-  overflow: hidden;
+.intro {
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: row;
+  background: url("../images/header.png") center right;
+  background-size: contain;
 
-  &::before {
-    display: block;
-    content: ' ';
-    position: absolute;
-    top: 0;
-    right: 0;
-    height: 50%;
-    z-index: 1;
-    width: 30vw;
-    background-color: $theme-red;
-  }
-
-  .title-clone, h2 {
-    font-family: "League Gothic", sans-serif;
-    font-size: $font-size-slogan;
-    display: block;
-    width: 100%;
+  > div {
+    width: 50%;
     height: 100%;
-    position: absolute;
-    white-space: nowrap;
-    line-height: .8;
-
-    &.title-clone-right {
-      .text-clone {
-        z-index: 2;
-      }
-
-      &::before {
-        display: block;
-        content: ' ';
-        position: absolute;
-        bottom: 0;
-        height: 50%;
-        z-index: 2;
-        left: 0;
-        width: 40vw;
-        background-color: $theme-red;
-      }
-    }
-
-    &.title-clone-left {
-      .text-clone {
-        z-index: 1;
-      }
-
-      &::after {
-        display: block;
-        content: ' ';
-        position: absolute;
-        height: 50%;
-        z-index: 0;
-        left: 40vw;
-        width: 50vw;
-        bottom: 0;
-        background-color: $theme-black;
-      }
-    }
-
-    .text-title,
-    .text-clone {
-      text-transform: uppercase;
-      color: transparent;
-      text-shadow: none;
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      width: 100%;
-      height: 100%;
-      transform: rotate($header-rotation) translate(-50%, -55%);
-
-      .transparent {
-        color: transparent;
-        text-shadow: none;
-      }
-    }
-
-    .text-title {
-      color: $theme-white;
-    }
-  }
-
-  .small {
-    color: $theme-blue;
-    font-size: 2 * $font-size-huge;
-    line-height: .7;
+    overflow: hidden;
     position: relative;
-    top: -2rem;
   }
 
-  .shifted {
-    margin-left: 1.1 * $font-size-slogan;
-  }
-
-  .text-white {
-    color: $theme-white;
-  }
-
-  .text {
+  h1 {
+    display: block;
     position: absolute;
     top: 0;
     left: 0;
-    line-height: 1;
-    height: 100%;
     width: 100%;
+    height: 100%;
+    text-align: center;
 
-    .smile {
-      height: $font-size-huge;
+    .text {
       position: absolute;
-      bottom: $font-size-slogan;
-      right: 0;
-    }
-
-    .stars {
-      color: $theme-red;
-      line-height: 0.8;
-      position: absolute;
-      top: 20%;
+      top: 50%;
       left: 50%;
-      transform: rotate($header-rotation) translate(-108%, -100%);
-      font-size: 2 * $font-size-huge;
-      font-weight: $font-weight-medium;
-      font-family: "League Gothic", sans-serif;
+      transform: translate(-50%, -50%);
+      line-height: 0.9;
+      width: 65%;
+      max-height: 80%;
+      display: block;
+
+      .name {
+        text-align: center;
+        font-size: 10rem;
+        color: $theme-blue;
+        height: calc(100% - #{15rem * 0.9});
+      }
+
+      .claim {
+        color: $theme-red;
+        font-size: 4rem;
+        letter-spacing: 3px;
+        display: inline-block;
+      }
     }
   }
 
-  .outlines {
-    color: $theme-black;
-    @include text-outline();
+  svg {
+    font-family: "League Gothic", sans-serif;
+    height: auto;
+    width: 100%;
+    display: block;
+    text-transform: uppercase;
 
-    @each $name, $color in $theme-colors {
-      &.outlines-fill-#{$name} {
-        color: $color;
-      }
+    .cls-1, .cls-6 {
+      fill: none;
+    }
+
+    .cls-2 {
+      clip-path: url(#clip-path);
+    }
+
+    .cls-3 {
+      fill: #fff;
+    }
+
+    .cls-4 {
+      fill: #fc2d2d;
+    }
+
+    .cls-5, .cls-7 {
+      fill: #2949e5;
+    }
+
+    .cls-6 {
+      stroke: #1d1d1b;
+      stroke-miterlimit: 10;
+      stroke-width: 1.5px;
+    }
+  }
+
+  img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 100%;
+    width: auto;
+  }
+
+  @media screen and (max-width: $break-medium) {
+    flex-direction: column;
+
+    > div {
+      width: 100%;
+    }
+  }
+}
+
+.slogan {
+  svg {
+    font-family: "League Gothic", sans-serif;
+    height: auto;
+    width: 100%;
+    display: block;
+    text-transform: uppercase;
+
+    .cls-1 {
+      fill: $theme-red;
+    }
+
+    .cls-2, .cls-8 {
+      fill: $theme-blue;
+    }
+
+    .cls-3 {
+      font-size: 249px;
+      fill: none;
+    }
+
+    .cls-4 {
+      stroke: $theme-white;
+      stroke-miterlimit: 10;
+      stroke-width: 2px;
+    }
+
+    .cls-5, .cls-7 {
+      fill: $theme-white;
+    }
+
+    .cls-6 {
+      fill: $theme-black;
+    }
+
+    .cls-7 {
+      letter-spacing: 0;
+    }
+
+    .cls-8 {
+      font-size: 95px;
     }
   }
 }
@@ -222,8 +224,6 @@ p {
     width: 100%;
     height: auto;
     display: block;
-    margin-top: -1px;
-    margin-bottom: -1px;
     z-index: 10;
     position: relative;
   }

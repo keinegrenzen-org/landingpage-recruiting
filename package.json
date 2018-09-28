@@ -4,7 +4,7 @@
     "autoprefixer": "^8.6.0",
     "css-mqpacker": "^6.0.2",
     "cssnano": "^3.10.0",
-    "node-sass": "^4.9.0",
+    "node-sass": "^4.9.3",
     "postcss-discard-comments": "^2.0.4",
     "postcss-loader": "^2.1.5",
     "postcss-scss": "^1.0.5",
@@ -19,5 +19,9 @@
     "dev": "encore dev",
     "watch": "encore dev --watch",
     "build": "encore production"
+  },
+  "dependencies": {
+    "fitty": "^2.2.6",
+    "fontfaceobserver": "^2.0.13"
   }
 }

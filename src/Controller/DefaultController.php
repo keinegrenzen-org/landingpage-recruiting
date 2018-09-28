@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\VarDumper\VarDumper;
 
 class DefaultController extends Controller
 {
@@ -15,8 +16,28 @@ class DefaultController extends Controller
      */
     public function index(string $name)
     {
-        return $this->render('index.html.twig', [
-            'name' => $name,
-        ]);
+        $nameArray = [];
+        $space = strpos($name, " ");
+
+        while ($space !== false) {
+            if ($space >= 8) {
+                $nameArray[] = substr($name, 0, $space);
+                $name = substr($name, $space + 1);
+                $space = strpos($name, " ");
+            } else {
+                $space = strpos($name, " ", $space + 1);
+            }
+        }
+
+        $nameArray[] = $name;
+
+        $name = implode("<br>", $nameArray);
+
+        return $this->render(
+            'index.html.twig',
+            [
+                'name' => $name,
+            ]
+        );
     }
 }
