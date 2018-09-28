@@ -16,10 +16,30 @@
             <div class="text">
                 <span class="stars">*&nbsp;*&nbsp;*</span>
                 <h2>
-                    <span class="outlines">Gute</span>&nbsp;Musik<br>
-                    <span class="small">f&uuml;r einen</span><br>
-                    <span class="outlines">guten</span>&nbsp;Zweck
+                    <span class="text-title">
+                        <span class="outlines outlines-fill-blue">Gute</span>&nbsp;<span>Musik</span><br>
+                        <span class="small">f&uuml;r einen</span><br>
+                        <span class="outlines outlines-fill-grey shifted">guten</span>&nbsp;<span class="transparent">Zweck</span>
+                    </span>
                 </h2>
+                <div class="title-clone title-clone-left">
+                    <span class="text-clone">
+                        <span>Gute</span>&nbsp;<span>Musik</span><br>
+                        <span class="small">f&uuml;r einen</span><br>
+                        <span class="shifted outlines outlines-fill-grey">
+                            <span class="transparent">g</span>uten
+                        </span>&nbsp;<span class="text-white">Zweck</span>
+                    </span>
+                </div>
+                <div class="title-clone title-clone-right">
+                    <span class="text-clone">
+                        <span>Gute</span>&nbsp;<span>Musik</span><br>
+                        <span class="small">f&uuml;r einen</span><br>
+                        <span class="shifted">
+                            <span class="outlines outlines-fill-red">g</span>uten
+                        </span>&nbsp;<span>Zweck</span>
+                    </span>
+                </div>
                 <span class="smile">{{ icon.render('smile', 'white') }} <i class="sr-only">Smile!</i></span>
             </div>
         </div>
@@ -73,17 +93,19 @@
             <a href="#ressourcen">Jetzt Mitmachen</a>
         </div>
         <div class="stats container">
-            <p>
-                <span class="number">23</span>
-                <span class="description">K&uuml;stler<br>sind schon<br>dabei</span>
-            </p>
-            <p class="and">
-                &amp;
-            </p>
-            <p>
-                <span class="number">657</span>
-                <span class="description">lieben<br>es</span>
-            </p>
+            <div class="inner">
+                <p>
+                    <span class="number">23</span>
+                    <span class="description">K&uuml;stler<br>sind schon<br>dabei</span>
+                </p>
+                <p class="and">
+                    &amp;
+                </p>
+                <p>
+                    <span class="number">657</span>
+                    <span class="description">Menschen<br>lieben<br>es</span>
+                </p>
+            </div>
         </div>
         <div class="vinyl container">
             <img src="{{ 'images/vinyl.png' }}" title="Vinyl" alt="K&ouml;rbe voller Vinylplatten">
@@ -104,17 +126,17 @@
                 <div class="card">
                     <span class="header-icon">{{ icon.render('cover', 'red') }}</span>
                     <h3>Die Cover</h3>
-                    <p>Als jpg oder png (min 500px x 500px)</p>
+                    <p>Als jpg oder png (min 500px &times; 500px)</p>
                 </div>
                 <div class="card">
                     <span class="header-icon">{{ icon.render('person', 'red') }}</span>
                     <h3>Profilbild</h3>
-                    <p>Mit Menschen drauf, als jpg oder png (min 600px x 400px)</p>
+                    <p>Mit Menschen drauf, als jpg oder png (min 600px &times; 400px)</p>
                 </div>
                 <div class="card">
                     <span class="header-icon">{{ icon.render('image', 'red') }}</span>
                     <h3>Ein Bannerbild</h3>
-                    <p>Als jpg oder png (min 1920px x 1080px)</p>
+                    <p>Als jpg oder png (min 1920px &times; 1080px)</p>
                 </div>
                 <div class="card">
                     <span class="header-icon">{{ icon.render('info', 'red') }}</span>

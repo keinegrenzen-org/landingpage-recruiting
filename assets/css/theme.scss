@@ -1,13 +1,34 @@
 @import "components/variables";
 @import "components/icons";
 @import "components/fonts";
+@import "components/mixins";
+
+$break-medium: 992px;
 
 html, body {
-  font-size: $font-size;
+  font-size: 16px;
   margin: 0;
   font-family: "Fivo Sans", sans-serif;
   width: 100%;
   max-width: 100%;
+}
+
+@media all and (max-width: 576px) {
+  html {
+    font-size: 0.7 * 16px;
+  }
+}
+
+@media all and (max-width: 768px) {
+  html {
+    font-size: 0.8 * 16px;
+  }
+}
+
+@media all and (max-width: 992px) {
+  html {
+    font-size: 0.9 * 16px;
+  }
 }
 
 * {
@@ -46,24 +67,121 @@ p {
 }
 
 .slogan {
-  $font-size-slogan: 3 * $font-size-huge;
+  $font-size-slogan: 5 * $font-size-huge;
   $header-rotation: -10deg;
 
   position: relative;
-  height: 6 * $font-size-slogan;
+  height: 3 * $font-size-slogan;
   text-align: center;
   font-size: $font-size-slogan;
   color: $theme-white;
   background-color: $theme-blue;
   overflow: hidden;
 
+  &::before {
+    display: block;
+    content: ' ';
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 50%;
+    z-index: 1;
+    width: 30vw;
+    background-color: $theme-red;
+  }
+
+  .title-clone, h2 {
+    font-family: "League Gothic", sans-serif;
+    font-size: $font-size-slogan;
+    display: block;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    white-space: nowrap;
+    line-height: .8;
+
+    &.title-clone-right {
+      .text-clone {
+        z-index: 2;
+      }
+
+      &::before {
+        display: block;
+        content: ' ';
+        position: absolute;
+        bottom: 0;
+        height: 50%;
+        z-index: 2;
+        left: 0;
+        width: 40vw;
+        background-color: $theme-red;
+      }
+    }
+
+    &.title-clone-left {
+      .text-clone {
+        z-index: 1;
+      }
+
+      &::after {
+        display: block;
+        content: ' ';
+        position: absolute;
+        height: 50%;
+        z-index: 0;
+        left: 40vw;
+        width: 50vw;
+        bottom: 0;
+        background-color: $theme-black;
+      }
+    }
+
+    .text-title,
+    .text-clone {
+      text-transform: uppercase;
+      color: transparent;
+      text-shadow: none;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 100%;
+      height: 100%;
+      transform: rotate($header-rotation) translate(-50%, -55%);
+
+      .transparent {
+        color: transparent;
+        text-shadow: none;
+      }
+    }
+
+    .text-title {
+      color: $theme-white;
+    }
+  }
+
+  .small {
+    color: $theme-blue;
+    font-size: 2 * $font-size-huge;
+    line-height: .7;
+    position: relative;
+    top: -2rem;
+  }
+
+  .shifted {
+    margin-left: 1.1 * $font-size-slogan;
+  }
+
+  .text-white {
+    color: $theme-white;
+  }
+
   .text {
     position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: rotate($header-rotation) translate(-50%, -49%);
+    top: 0;
+    left: 0;
     line-height: 1;
-    padding: $font-size-slogan;
+    height: 100%;
+    width: 100%;
 
     .smile {
       height: $font-size-huge;
@@ -76,33 +194,24 @@ p {
       color: $theme-red;
       line-height: 0.8;
       position: absolute;
-      top: 0;
+      top: 20%;
+      left: 50%;
+      transform: rotate($header-rotation) translate(-108%, -100%);
+      font-size: 2 * $font-size-huge;
+      font-weight: $font-weight-medium;
+      font-family: "League Gothic", sans-serif;
     }
-
-    &::before {
-      display: block;
-      content: ' ';
-      position: absolute;
-      right: -20%;
-      bottom: 0;
-      background-color: $theme-black;
-      width: 100%;
-      height: 50%;
-      z-index: -1;
-      transform: rotate(-$header-rotation);
-    }
-
   }
 
   .outlines {
-    text-shadow: -1px -1px 0 $theme-white, 1px -1px 0 $theme-white, -1px 1px 0 $theme-white, 1px 1px 0 $theme-white;
     color: $theme-black;
-  }
+    @include text-outline();
 
-  .small {
-    color: $theme-blue;
-    font-size: 3 * $font-size-huge;
-    line-height: 1;
+    @each $name, $color in $theme-colors {
+      &.outlines-fill-#{$name} {
+        color: $color;
+      }
+    }
   }
 }
 
@@ -124,7 +233,7 @@ p {
   $inner-delta-l: 25vw;
   $inner-delta-r: 15vw;
   $header-font-size: 9rem;
-  $header-width: 4 * 0.4 * $header-font-size; // approx width of teh word "WÄRE" for a font size of 9rem
+  $header-width: 4 * 0.4 * $header-font-size; // approx width of the word "WÄRE" for a font size of 9rem
   $header-rotation: -8deg;
 
   position: relative;
@@ -228,11 +337,11 @@ p {
     justify-content: center;
     flex-wrap: nowrap;
 
-    div {
+    > div {
       width: 50%;
 
       p {
-        margin: 0;
+        margin: 2rem 0 0;
         font-weight: $font-weight-regular;
         padding-left: 2rem;
 
@@ -260,8 +369,19 @@ p {
         }
       }
 
-      p + p {
-        margin-top: 2rem;
+      &:first-child > p:first-child {
+        margin: 0;
+      }
+    }
+  }
+
+  @media screen and (max-width: $break-medium) {
+    .inner {
+      flex-direction: column;
+      padding: 4rem 5rem;
+
+      > div {
+        width: 100%;
       }
     }
   }
@@ -290,7 +410,7 @@ p {
   a {
     font-size: 2 * $font-size-huge;
     color: $theme-black;
-    font-weight: $font-weight-heavy; // TODO
+    font-weight: $font-weight-heavy;
     text-decoration: none;
 
     &::before, &::after {
@@ -308,9 +428,9 @@ p {
   padding-top: 2rem;
   padding-bottom: 6rem;
   position: relative;
+  color: $theme-white;
   display: flex;
   flex-wrap: nowrap;
-  color: $theme-white;
   justify-content: center;
   align-items: center;
 
@@ -319,47 +439,68 @@ p {
     display: block;
     content: ' ';
     width: 5vw;
-    height: 150%;
+    height: 30vw;
     position: absolute;
-    top: 60%;
+    top: calc(100% - 1px);
     right: 0;
     z-index: 20;
   }
 
-  .and {
-    font-size: 12rem;
-    color: $theme-blue;
-    text-shadow: -1px -1px 0 $theme-white, 1px -1px 0 $theme-white, -1px 1px 0 $theme-white, 1px 1px 0 $theme-white;
-    font-family: "League Gothic", sans-serif;
-  }
-
-  p {
-    text-align: left;
-    font-size: $font-size-huge;
-    margin: 0;
-    padding: 0 1rem;
+  .inner {
     display: flex;
     flex-wrap: nowrap;
-    align-items: flex-start;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
 
-    .number {
-      font-family: "League Gothic", sans-serif;
-      font-weight: $font-weight-regular;
+    .and {
       font-size: 12rem;
-      margin-right: 1rem;
-      display: block;
-      line-height: 0.8;
-      border-bottom: 0.5rem solid $theme-white;
+      color: $theme-blue;
+      font-family: "League Gothic", sans-serif;
+      align-self: normal;
+
+      @include text-outline();
     }
 
-    .description {
-      display: block;
-      font-size: 1.2 * $font-size-huge;
-      font-weight: $font-weight-thin;
+    p {
+      text-align: left;
+      font-size: $font-size-huge;
+      margin: 0;
+      padding: 0 1rem;
+      display: flex;
+      flex-wrap: nowrap;
+      align-items: flex-start;
 
-      &:first-line {
-        font-weight: $font-weight-bold;
+      .number {
+        font-family: "League Gothic", sans-serif;
+        font-weight: $font-weight-regular;
+        font-size: 12rem;
+        margin-right: 1rem;
+        display: block;
+        line-height: 0.8;
+        border-bottom: 0.5rem solid $theme-white;
       }
+
+      .description {
+        display: block;
+        font-size: 1.2 * $font-size-huge;
+        font-weight: $font-weight-thin;
+
+        &:first-line {
+          font-weight: $font-weight-bold;
+        }
+      }
+    }
+  }
+
+  @media screen and (max-width: $break-medium) {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+
+    .inner {
+      flex-direction: column;
+      justify-content: start;
+      align-items: start;
     }
   }
 }
@@ -389,9 +530,9 @@ p {
     display: block;
     content: ' ';
     width: 5vw;
-    height: 75%;
+    height: 30vw;
     position: absolute;
-    top: -40%;
+    top: calc(-30vw + 1px);
     left: 0;
     z-index: 10;
   }
@@ -446,7 +587,7 @@ p {
       padding-left: 4rem;
       position: relative;
 
-      .header-icon {
+      > .header-icon {
         max-width: 3rem;
         height: 2.7rem;
         position: absolute;
@@ -454,7 +595,7 @@ p {
         left: 0;
       }
 
-      h3 {
+      > h3 {
         color: $theme-white;
         font-size: 3.5rem;
         line-height: 1;
@@ -462,7 +603,7 @@ p {
         margin: 0 0 0.5rem;
       }
 
-      p {
+      > p {
         margin: 0 0 2rem;
         padding-right: 40%;
         font-weight: $font-weight-medium;
@@ -480,6 +621,19 @@ p {
       font-weight: $font-weight-light;
       font-size: $font-size-huge;
       line-height: 1.2;
+    }
+
+    @media screen and (max-width: $break-medium) {
+      flex-direction: column;
+
+      .card {
+        width: 100%;
+        padding-right: 20%;
+
+        > p {
+          padding-right: 20%;
+        }
+      }
     }
   }
 
@@ -600,6 +754,14 @@ footer {
         height: $font-size-huge;
         vertical-align: text-bottom;
       }
+    }
+  }
+
+  @media screen and (max-width: $break-medium) {
+    flex-direction: column;
+
+    .imprint, .notices {
+      width: 100%;
     }
   }
 }
