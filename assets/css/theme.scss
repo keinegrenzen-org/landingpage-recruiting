@@ -230,98 +230,51 @@ p {
 }
 
 .project-description {
-  $inner-delta-l: 25vw;
-  $inner-delta-r: 15vw;
-  $header-font-size: 9rem;
-  $header-width: 4 * 0.4 * $header-font-size; // approx width of the word "WÄRE" for a font size of 9rem
-  $header-rotation: -8deg;
-
   position: relative;
-  background-color: $theme-blue;
+  background: url("../images/project_description_bg.svg") repeat-y top left;
 
-  .inner .title-clone > span,
-  .title {
-    font-size: $header-font-size;
+  svg {
     position: absolute;
-    color: $theme-white;
-    line-height: 1;
-    text-align: right;
-    display: block;
+    top: 0;
+    left: 0;
+    height: auto;
+    width: 100%;
+    z-index: 1;
     font-family: "League Gothic", sans-serif;
-    font-weight: $font-weight-regular;
-    text-transform: uppercase;
-    width: $header-width;
-    transform: rotate($header-rotation);
-  }
 
-  .title {
-    top: 50%;
-    left: calc(#{$inner-delta-l} - #{$header-width} + (1.4rem));
-    transform: rotate($header-rotation) translateY(-47%);
+    .cls-1 {
+      fill: $theme-black;
+    }
+
+    .cls-2 {
+      font-size: 265px;
+    }
+
+    .cls-2, .cls-8 {
+      fill: $theme-white;
+    }
+
+    .cls-3 {
+      letter-spacing: 0.03em;
+    }
+
+    .cls-6 {
+      fill: $theme-red;
+    }
+
+    .cls-7 {
+      fill: $theme-blue;
+    }
   }
 
   .inner {
-    width: 100vw - $inner-delta-l - $inner-delta-r;
-    left: $inner-delta-l;
-    right: $inner-delta-r;
-    background-color: $theme-red;
-    padding: 8rem 4rem;
+    width: 100%;
+    padding: 8vw 25vw 8vw 35vw;
     color: $theme-white;
     font-size: 1.2 * $font-size-huge;
     line-height: 1.2;
     position: relative;
-
-    .title-clone {
-      overflow: hidden;
-      position: absolute;
-    }
-
-    .title-clone-left {
-      background-color: $theme-blue;
-      width: $inner-delta-l;
-      left: -$inner-delta-l;
-      height: $header-font-size;
-      bottom: 0;
-
-      span {
-        right: 0;
-        left: calc(#{$inner-delta-l} - #{$header-width} + (0.2rem));
-        bottom: ($header-font-size / 2) - 1rem;
-      }
-    }
-
-    .title-clone-right {
-      width: 2rem;
-      height: $header-font-size;
-      bottom: ($header-font-size / 2) - 0.8rem;
-      left: 0;
-
-      span {
-        left: -$header-width;
-        bottom: 0;
-      }
-    }
-  }
-
-  &::before, &::after {
-    position: absolute;
-    display: block;
-    content: ' ';
-    top: 0;
-  }
-
-  &::before {
-    background-color: $theme-black;
-    width: $inner-delta-l;
-    bottom: $header-font-size;
-    left: 0;
-  }
-
-  &::after {
-    background-color: $theme-red;
-    width: $inner-delta-r;
-    right: 0;
-    height: $header-font-size;
+    z-index: 1;
   }
 }
 
