@@ -134,6 +134,12 @@ p {
     .contact-icon {
       fill: $theme-blue;
     }
+
+    @media all and (max-width: $break-medium) {
+      .text {
+        display: none;
+      }
+    }
   }
 
   .section-menu {
@@ -394,6 +400,13 @@ nav + .container {
     line-height: 1.2;
     position: relative;
     z-index: 1;
+    word-break: break-word;
+  }
+
+  @media screen and (max-width: $break-medium) {
+    .inner {
+      font-size: $font-size;
+    }
   }
 }
 
@@ -413,6 +426,7 @@ nav + .container {
         margin: 2rem 0 0;
         font-weight: $font-weight-regular;
         padding-left: 2rem;
+        word-break: break-word;
 
         .normal {
           font-family: "Fivo Sans", sans-serif;
@@ -446,7 +460,20 @@ nav + .container {
 
   @media screen and (max-width: $break-medium) {
     .inner {
-      padding: 4rem 5rem;
+      padding: 2rem 2.5rem;
+
+      > .section {
+        p {
+          .benefit {
+            font-size: 1.5 * $font-size-huge;
+
+            &::before {
+              font-size: 4rem;
+              left: -1.5rem;
+            }
+          }
+        }
+      }
     }
   }
 }
@@ -684,12 +711,29 @@ nav + .container {
     }
 
     @media screen and (max-width: $break-medium) {
-      .card {
-        padding-right: 20%;
+      padding: (6rem + $title-height + $title-offset-y) 3rem 3rem;
 
-        > p {
-          padding-right: 20%;
+      .card {
+        padding-right: 0;
+        padding-left: 2rem;
+
+        > .header-icon {
+          max-width: 1.5rem;
+          height: 1.35rem;
+          position: absolute;
+          top: 0.3rem;
+          left: 0;
         }
+
+        h3 {
+          font-size: 2rem;
+        }
+      }
+
+      > p {
+        padding-right: 0;
+        font-size: $font-size;
+        padding-left: 2rem;
       }
     }
   }
