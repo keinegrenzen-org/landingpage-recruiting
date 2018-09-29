@@ -66,19 +66,146 @@ p {
   width: 100%;
 }
 
+.section-wrapper {
+  flex-direction: row;
+  flex-wrap: nowrap;
+  display: flex;
+
+  .section {
+    width: 50%;
+  }
+
+  @media screen and (max-width: $break-medium) {
+    flex-direction: column;
+
+    .section {
+      width: 100%;
+    }
+  }
+}
+
 .fitti {
   white-space: nowrap;
   display: inline-block;
 }
 
+.fixed-nav.section-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1005;
+
+  .menu, .contact-icon {
+    height: 75px;
+    width: 75px;
+    padding: 1rem;
+    display: block;
+  }
+
+  .menu {
+    background: $theme-black;
+    border: none;
+    transition: background-color .2s ease-in-out;
+    cursor: pointer;
+
+    .icon {
+      fill: $theme-red;
+    }
+
+    svg > rect {
+      transform-origin: center;
+      transition: transform .2s ease-in-out;
+    }
+
+    &:hover {
+      svg > rect {
+        transform: rotate(0);
+      }
+    }
+  }
+
+  .contact-button {
+    display: flex;
+    justify-items: center;
+    align-items: center;
+    font-size: 1.5rem;
+    white-space: nowrap;
+
+    .contact-icon {
+      fill: $theme-blue;
+    }
+  }
+
+  .section-menu {
+    z-index: 1010;
+    background: url("../images/logo_bg.svg") repeat-x;
+    transition: background-position .4s ease-in-out;
+  }
+
+  .section-contact {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-around;
+    background-color: $theme-red;
+    z-index: 1000;
+    position: fixed;
+    top: 0;
+    right: 0;
+    transition: transform .4s ease-in-out;
+  }
+
+  &.active {
+    .menu {
+      background: $theme-blue;
+      border: none;
+
+      svg > rect {
+        &.first {
+          transform: translate(-22%, 32%) rotate(35deg);
+        }
+
+        &.second {
+          transform: translate(2%, 2%) rotate(-35deg);
+        }
+
+        &.third {
+          transform: translate(40%, 0%) rotate(90deg);
+        }
+      }
+    }
+
+    .section-menu {
+      background-position-y: -75px;
+    }
+
+    .section-contact {
+      transform: translateY(-75px);
+    }
+  }
+
+  @media screen and (max-width: $break-medium) {
+    flex-direction: row;
+
+    .section-menu {
+      width: 75px;
+    }
+
+    .section-contact {
+      padding-left: 75px;
+    }
+  }
+}
+
+nav + .container {
+  margin-top: 75px;
+}
+
 .intro {
-  display: flex;
-  flex-wrap: nowrap;
-  flex-direction: row;
   background: url("../images/header.png") center right;
   background-size: contain;
 
-  > div {
+  > .section {
     width: 50%;
     height: 100%;
     overflow: hidden;
@@ -161,14 +288,6 @@ p {
     transform: translate(-50%, -50%);
     height: 100%;
     width: auto;
-  }
-
-  @media screen and (max-width: $break-medium) {
-    flex-direction: column;
-
-    > div {
-      width: 100%;
-    }
   }
 }
 
@@ -286,12 +405,9 @@ p {
     margin-left: 15%;
     background-color: $theme-white;
     padding: 8rem 10rem;
-    display: flex;
     justify-content: center;
-    flex-wrap: nowrap;
 
-    > div {
-      width: 50%;
+    > .section {
 
       p {
         margin: 2rem 0 0;
@@ -330,12 +446,7 @@ p {
 
   @media screen and (max-width: $break-medium) {
     .inner {
-      flex-direction: column;
       padding: 4rem 5rem;
-
-      > div {
-        width: 100%;
-      }
     }
   }
 }
@@ -382,8 +493,6 @@ p {
   padding-bottom: 6rem;
   position: relative;
   color: $theme-white;
-  display: flex;
-  flex-wrap: nowrap;
   justify-content: center;
   align-items: center;
 
@@ -517,7 +626,6 @@ p {
 
   .inner {
     background-color: $theme-blue;
-    display: flex;
     flex-wrap: wrap;
     padding: (6rem + $title-height + $title-offset-y) 6rem 6rem;
     width: 75vw;
@@ -536,7 +644,6 @@ p {
     }
 
     .card {
-      width: 50%;
       padding-left: 4rem;
       position: relative;
 
@@ -577,10 +684,7 @@ p {
     }
 
     @media screen and (max-width: $break-medium) {
-      flex-direction: column;
-
       .card {
-        width: 100%;
         padding-right: 20%;
 
         > p {
@@ -653,7 +757,6 @@ p {
 
 footer {
   background-color: $theme-black;
-  display: flex;
   justify-content: normal;
   align-items: stretch;
   width: 100%;
@@ -709,12 +812,39 @@ footer {
       }
     }
   }
+}
 
-  @media screen and (max-width: $break-medium) {
-    flex-direction: column;
+.big-nav {
+  position: fixed;
+  z-index: 1000;
+  background-color: $theme-black;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transform: translateY(-100%);
+  transition: transform .3s ease-in-out;
 
-    .imprint, .notices {
-      width: 100%;
+  ul {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 100%;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    color: $theme-white;
+    font-size: 5rem;
+    font-family: "League Gothic", sans-serif;
+    text-transform: uppercase;
+    text-align: center;
+
+    li {
+      cursor: pointer;
     }
+  }
+
+  &.active {
+    transform: translateY(0);
   }
 }

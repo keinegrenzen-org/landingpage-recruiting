@@ -2,9 +2,9 @@
 
 namespace App\Controller;
 
+use App\Service\NameParser;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\Routing\Annotation\Route;
-use Symfony\Component\VarDumper\VarDumper;
 
 class DefaultController extends Controller
 {
@@ -12,31 +12,18 @@ class DefaultController extends Controller
     /**
      * @Route("/{name}", name="index", defaults={"name" = "Musik"})
      * @param string $name
+     * @param NameParser $nameParser
      * @return \Symfony\Component\HttpFoundation\Response
      */
-    public function index(string $name)
+    public function index(string $name, NameParser $nameParser)
     {
-        $nameArray = [];
-        $space = strpos($name, " ");
-
-        while ($space !== false) {
-            if ($space >= 8) {
-                $nameArray[] = substr($name, 0, $space);
-                $name = substr($name, $space + 1);
-                $space = strpos($name, " ");
-            } else {
-                $space = strpos($name, " ", $space + 1);
-            }
-        }
-
-        $nameArray[] = $name;
-
-        $name = implode("<br>", $nameArray);
+        $nameParser->setName($name);
+        $nameParser->parseName();
 
         return $this->render(
             'index.html.twig',
             [
-                'name' => $name,
+                'name' => $nameParser->getNameForRendering(),
             ]
         );
     }
