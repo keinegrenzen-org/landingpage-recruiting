@@ -10,7 +10,7 @@
             }
         </style>
     </defs>
-    <rect id="red" class="cls-6" x="559" width="1422" height="100%"></rect>
-    <rect id="blue_left" class="cls-7" y="0" width="559" height="100%"></rect>
-    <rect id="blue_right" class="cls-7" x="1691" y="0" width="290" height="100%"></rect>
+    <rect id="red" class="cls-6" x="559" width="1422" height="100%"/>
+    <rect id="blue_left" class="cls-7" y="0" width="559" height="100%"/>
+    <rect id="blue_right" class="cls-7" x="1691" y="0" width="290" height="100%"/>
 </svg>
