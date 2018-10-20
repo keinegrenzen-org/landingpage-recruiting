@@ -26,8 +26,7 @@ document.addEventListener('DOMContentLoaded', function () {
   let first = true
   let scrollTop = 0
   const scrollListener = function () {
-    const eventScrollTop = window.scrollY || window.scrollTop || document.getElementsByTagName("html")[0].scrollTop
-    console.info('scroll', first, eventScrollTop)
+    const eventScrollTop = window.scrollY || window.scrollTop || document.getElementsByTagName('html')[0].scrollTop
     if (first) {
       first = false
       scrollTop = eventScrollTop
