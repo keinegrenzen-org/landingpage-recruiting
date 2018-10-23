@@ -613,6 +613,7 @@ nav + .container {
   background-color: $theme-red;
   width: 100%;
   position: relative;
+  overflow: hidden;
 
   &::before {
     background-color: $theme-blue;
