@@ -366,7 +366,7 @@ nav + .container {
 
 .project-description {
   position: relative;
-  background: url("../images/project_description_bg.svg") repeat-y top left;
+  background: url("../images/project_description_bg.svg") repeat-y top left, url("../images/project_description_bg.svg") 0 10px repeat-y;
   min-height: calc(100vw * 0.42);
 
   svg {
