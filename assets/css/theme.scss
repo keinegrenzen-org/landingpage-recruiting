@@ -379,27 +379,36 @@ nav + .container {
     font-family: "League Gothic", sans-serif;
 
     .cls-1 {
-      fill: $theme-black;
+      fill: #fc2d2d;
     }
 
-    .cls-2 {
-      font-size: 265px;
-    }
-
-    .cls-2, .cls-8 {
-      fill: $theme-white;
+    .cls-2, .cls-4 {
+      fill: #fff;
     }
 
     .cls-3 {
+      fill: #1d1d1b;
+    }
+
+    .cls-4 {
+      font-size: 265px;
+      font-family: "League Gothic", sans-serif;
+    }
+
+    .cls-5 {
       letter-spacing: 0.03em;
     }
 
     .cls-6 {
-      fill: $theme-red;
+      letter-spacing: 0;
     }
 
     .cls-7 {
-      fill: $theme-blue;
+      letter-spacing: -0.01em;
+    }
+
+    .cls-8 {
+      fill: #2949e5;
     }
   }
 
