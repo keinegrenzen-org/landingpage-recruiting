@@ -458,9 +458,9 @@ nav + .container {
           font-family: "Fivo Sans", sans-serif;
           font-size: $font-size-huge;
           display: block;
-            @media screen and (max-width: $break-small) {
-              font-size: 1.5rem;
-            }
+          @media screen and (max-width: $break-small) {
+            font-size: 1.5rem;
+          }
         }
 
         .benefit {
@@ -536,7 +536,7 @@ nav + .container {
     color: $theme-black;
     font-weight: $font-weight-heavy;
     text-decoration: none;
-    @media screen and (max-width: $break-small){
+    @media screen and (max-width: $break-small) {
       font-size: 3rem;
     }
 
@@ -920,6 +920,7 @@ footer {
     position: absolute;
     top: 50%;
     left: 50%;
+    width: 100%;
     transform: translate(-50%, -50%);
     list-style-type: none;
     padding: 0;
