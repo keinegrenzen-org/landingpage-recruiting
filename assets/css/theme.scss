@@ -908,6 +908,10 @@ footer {
     align-items: center;
     justify-content: center;
 
+    @media screen and (max-width: $break-medium) {
+      font-size: 3.5rem;
+    }
+
     li {
       cursor: pointer;
       position: relative;
