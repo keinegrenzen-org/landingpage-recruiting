@@ -4,6 +4,7 @@
 @import "components/mixins";
 
 $break-medium: 992px;
+$break-small: 420px;
 
 html, body {
   font-size: 16px;
@@ -60,6 +61,11 @@ h1, h2, h3, h4, h5, h6 {
 
 p {
   margin: 0;
+
+  @media screen and (max-width: $break-small) {
+    font-size: 1.2rem;
+  }
+
 }
 
 .container {
@@ -452,6 +458,9 @@ nav + .container {
           font-family: "Fivo Sans", sans-serif;
           font-size: $font-size-huge;
           display: block;
+            @media screen and (max-width: $break-small) {
+              font-size: 1.5rem;
+            }
         }
 
         .benefit {
@@ -461,6 +470,10 @@ nav + .container {
           display: block;
           text-transform: uppercase;
           position: relative;
+
+          @media screen and (max-width: $break-small) {
+            font-size: 2.2rem;
+          }
 
           &::before {
             content: "*";
@@ -579,6 +592,9 @@ nav + .container {
       display: flex;
       flex-wrap: nowrap;
       align-items: flex-start;
+      @media screen and (max-width: $break-small) {
+        padding: 0 3rem;
+      }
 
       .number {
         font-family: "League Gothic", sans-serif;
@@ -715,6 +731,9 @@ nav + .container {
         margin: 0 0 2rem;
         padding-right: 40%;
         font-weight: $font-weight-medium;
+        @media screen and (max-width: $break-small) {
+          padding-right: 0;
+        }
       }
 
       &:last-of-type {
@@ -808,6 +827,10 @@ nav + .container {
         margin: 0;
         font-family: "League Gothic", sans-serif;
         text-transform: uppercase;
+
+        @media screen and (max-width: $break-small) {
+          font-size: 6rem;
+        }
       }
 
       a {
