@@ -79,14 +79,14 @@ p {
 
   .section {
     width: 50%;
+
+    @media screen and (max-width: $break-medium) {
+      width: 100%;
+    }
   }
 
   @media screen and (max-width: $break-medium) {
     flex-direction: column;
-
-    .section {
-      width: 100%;
-    }
   }
 }
 
@@ -141,8 +141,8 @@ p {
       fill: $theme-blue;
     }
 
-    @media all and (max-width: $break-medium) {
-      .text {
+    .text {
+      @media all and (max-width: $break-medium) {
         display: none;
       }
     }
@@ -189,23 +189,23 @@ p {
 
     .section-menu {
       background-position-y: -75px;
+
+      @media screen and (max-width: $break-medium) {
+        width: 75px;
+      }
     }
 
     .section-contact {
       transform: translateY(-75px);
+
+      @media screen and (max-width: $break-medium) {
+        padding-left: 75px;
+      }
     }
   }
 
   @media screen and (max-width: $break-medium) {
     flex-direction: row;
-
-    .section-menu {
-      width: 75px;
-    }
-
-    .section-contact {
-      padding-left: 75px;
-    }
   }
 }
 
@@ -348,10 +348,8 @@ nav + .container {
     .cls-8 {
       font-size: 95px;
     }
-  }
 
-  @media screen and (max-width: $break-medium) {
-    svg {
+    @media screen and (max-width: $break-medium) {
       width: 140%;
       left: -20%;
     }
@@ -427,10 +425,8 @@ nav + .container {
     position: relative;
     z-index: 1;
     word-break: break-word;
-  }
 
-  @media screen and (max-width: $break-medium) {
-    .inner {
+    @media screen and (max-width: $break-medium) {
       font-size: 1.2 * $font-size-big;
     }
   }
@@ -527,8 +523,7 @@ nav + .container {
 }
 
 .stats-prelude {
-  padding-top: 6rem;
-  padding-bottom: 2rem;
+  padding: 6rem 1rem 2rem;
   text-align: center;
 
   a {
@@ -536,6 +531,7 @@ nav + .container {
     color: $theme-black;
     font-weight: $font-weight-heavy;
     text-decoration: none;
+
     @media screen and (max-width: $break-small) {
       font-size: 3rem;
     }
@@ -543,9 +539,19 @@ nav + .container {
     &::before, &::after {
       content: "×";
       color: $theme-red;
-      margin: 0 1rem;
       font-size: 3 * $font-size-huge;
       font-weight: $font-weight-light;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    &::before {
+      left: -1rem;
+    }
+
+    &::after {
+      right: -1rem;
     }
   }
 }
@@ -595,6 +601,7 @@ nav + .container {
       display: flex;
       flex-wrap: nowrap;
       align-items: flex-start;
+
       @media screen and (max-width: $break-small) {
         padding: 0 3rem;
       }
@@ -607,6 +614,10 @@ nav + .container {
         display: block;
         line-height: 0.8;
         border-bottom: 0.5rem solid $theme-white;
+
+        @media screen and (max-width: $break-small) {
+          font-size: 8rem;
+        }
       }
 
       .description {
@@ -619,17 +630,17 @@ nav + .container {
         }
       }
     }
+
+    @media screen and (max-width: $break-medium) {
+      flex-direction: column;
+      justify-content: start;
+      align-items: start;
+    }
   }
 
   @media screen and (max-width: $break-medium) {
     padding-top: 4rem;
     padding-bottom: 4rem;
-
-    .inner {
-      flex-direction: column;
-      justify-content: start;
-      align-items: start;
-    }
   }
 }
 
@@ -720,6 +731,14 @@ nav + .container {
         position: absolute;
         top: 0.3rem;
         left: 0;
+
+        @media screen and (max-width: $break-medium) {
+          max-width: 1.5rem;
+          height: 1.35rem;
+          position: absolute;
+          top: 0.3rem;
+          left: 0;
+        }
       }
 
       > h3 {
@@ -728,19 +747,31 @@ nav + .container {
         line-height: 1;
         font-weight: $font-weight-regular;
         margin: 0 0 0.5rem;
+
+        @media screen and (max-width: $break-medium) {
+          font-size: 2rem;
+        }
       }
 
       > p {
         margin: 0 0 2rem;
         padding-right: 40%;
         font-weight: $font-weight-medium;
+
         @media screen and (max-width: $break-small) {
           padding-right: 0;
+          font-size: $font-size;
+          padding-left: 2rem;
         }
       }
 
       &:last-of-type {
         width: 100%;
+      }
+
+      @media screen and (max-width: $break-medium) {
+        padding-right: 0;
+        padding-left: 2rem;
       }
     }
 
@@ -755,29 +786,6 @@ nav + .container {
 
     @media screen and (max-width: $break-medium) {
       padding: (6rem + $title-height + $title-offset-y) 3rem 3rem;
-
-      .card {
-        padding-right: 0;
-        padding-left: 2rem;
-
-        > .header-icon {
-          max-width: 1.5rem;
-          height: 1.35rem;
-          position: absolute;
-          top: 0.3rem;
-          left: 0;
-        }
-
-        h3 {
-          font-size: 2rem;
-        }
-      }
-
-      > p {
-        padding-right: 0;
-        font-size: $font-size;
-        padding-left: 2rem;
-      }
     }
   }
 

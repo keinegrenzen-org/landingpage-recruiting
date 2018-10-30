@@ -32,4 +32,5 @@ The `dev-server` npm script will automatically build SCSS & JS and push changes 
 ## Author and contributors
 
 - *(Designer)* Lucas Carrascosa
-- *(Author)* Barthélémy Bonhomme, [@BarthyB](https://github.com/BarthyB/): [post@barthy.koeln](mailto:post@barthy.koeln)
+- *(Full-Stack Dev)* Barthélémy Bonhomme, [@BarthyB](https://github.com/BarthyB/): [post@barthy.koeln](mailto:post@barthy.koeln)
+- *(Frontend Dev)* Yannick Hoyer, [@zagazar](https://github.com/zagazar/): [yannick@keinegrenzen.org](mailto:yannick@keinegrenzen.org)
