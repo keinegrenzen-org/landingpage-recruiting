@@ -1,12 +1,12 @@
 $theme-blue: #2750dd;
 $theme-red: #fd2c35;
 $theme-black: #232221;
-$theme-white: #ffffff;
+$theme-white: #fff;
 
-$font-size: 1.2rem;
-$font-size-big: 1.2 * $font-size;
-$font-size-huge: 1.5 * $font-size;
-$font-size-small: 0.8 * $font-size;
+$font-size-base: 1.2rem;
+$font-size-big: 1.2 * $font-size-base;
+$font-size-huge: 1.5 * $font-size-base;
+$font-size-small: .8 * $font-size-base;
 
 $theme-colors: (
         blue: $theme-blue,

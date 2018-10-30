@@ -1,34 +1,35 @@
-@import "components/variables";
-@import "components/icons";
-@import "components/fonts";
-@import "components/mixins";
+@import 'components/variables';
+@import 'components/icons';
+@import 'components/fonts';
+@import 'components/mixins';
 
 $break-medium: 992px;
 $break-small: 420px;
 
-html, body {
+html,
+body {
+  font-family: "Fivo Sans", sans-serif;
   font-size: 16px;
   margin: 0;
-  font-family: "Fivo Sans", sans-serif;
-  width: 100%;
   max-width: 100%;
+  width: 100%;
 }
 
 @media all and (max-width: 576px) {
   html {
-    font-size: 0.7 * 16px;
+    font-size: .7 * 16px;
   }
 }
 
 @media all and (max-width: 768px) {
   html {
-    font-size: 0.8 * 16px;
+    font-size: .8 * 16px;
   }
 }
 
 @media all and (max-width: 992px) {
   html {
-    font-size: 0.9 * 16px;
+    font-size: .9 * 16px;
   }
 }
 
@@ -37,14 +38,14 @@ html, body {
 }
 
 .sr-only {
-  position: absolute;
-  width: 1px;
+  border: 0;
+  clip: rect(0, 0, 0, 0);
   height: 1px;
-  padding: 0;
   margin: -1px;
   overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  border: 0;
+  padding: 0;
+  position: absolute;
+  width: 1px;
 }
 
 a {
@@ -52,11 +53,16 @@ a {
   text-decoration: underline;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: "League Gothic", sans-serif;
-  text-transform: uppercase;
   font-weight: $font-weight-regular;
   margin: 0;
+  text-transform: uppercase;
 }
 
 p {
@@ -65,7 +71,6 @@ p {
   @media screen and (max-width: $break-small) {
     font-size: 1.2rem;
   }
-
 }
 
 .container {
@@ -73,9 +78,9 @@ p {
 }
 
 .section-wrapper {
+  display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
-  display: flex;
 
   .section {
     width: 50%;
@@ -91,50 +96,49 @@ p {
 }
 
 .fitti {
-  white-space: nowrap;
   display: inline-block;
+  white-space: nowrap;
 }
 
-.fixed-nav.section-wrapper {
+.fixed-nav {
+  left: 0;
   position: fixed;
   top: 0;
-  left: 0;
   z-index: 1005;
 
-  .menu, .contact-icon {
-    height: 75px;
-    width: 75px;
-    padding: 1rem;
+  .menu,
+  .contact-icon {
     display: block;
+    height: 75px;
+    padding: 1rem;
+    width: 75px;
   }
 
   .menu {
     background: $theme-black;
-    border: none;
-    transition: background-color .2s ease-in-out;
+    border: 0;
     cursor: pointer;
+    transition: background-color .2s ease-in-out;
 
     .icon {
       fill: $theme-red;
     }
 
-    svg > rect {
+    rect {
       transform-origin: center;
       transition: transform .2s ease-in-out;
     }
 
-    &:hover {
-      svg > rect {
-        transform: rotate(0);
-      }
+    &:hover rect {
+      transform: rotate(0);
     }
   }
 
   .contact-button {
-    display: flex;
-    justify-items: center;
     align-items: center;
+    display: flex;
     font-size: 1.5rem;
+    justify-items: center;
     white-space: nowrap;
 
     .contact-icon {
@@ -149,58 +153,59 @@ p {
   }
 
   .section-menu {
-    z-index: 1010;
-    background: url("../images/logo_bg.svg") repeat-x;
+    background: url('../images/logo_bg.svg') repeat-x;
     transition: background-position .4s ease-in-out;
+    z-index: 1010;
+
+    @media screen and (max-width: $break-medium) {
+      width: 75px;
+    }
   }
 
   .section-contact {
+    background-color: $theme-red;
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
     justify-content: space-around;
-    background-color: $theme-red;
-    z-index: 1000;
     position: fixed;
-    top: 0;
     right: 0;
+    top: 0;
     transition: transform .4s ease-in-out;
+    z-index: 1000;
+
+    @media screen and (max-width: $break-medium) {
+      padding-left: 75px;
+    }
   }
 
   &.active {
     .menu {
       background: $theme-blue;
-      border: none;
+      border: 0;
+    }
 
-      svg > rect {
-        &.first {
-          transform: translate(-22%, 32%) rotate(35deg);
-        }
+    .menu:hover .first,
+    .first {
+      transform: translate(-22%, 32%) rotate(35deg);
+    }
 
-        &.second {
-          transform: translate(2%, 2%) rotate(-35deg);
-        }
+    .menu:hover .second,
+    .second {
+      transform: translate(2%, 2%) rotate(-35deg);
+    }
 
-        &.third {
-          transform: translate(40%, 0%) rotate(90deg);
-        }
-      }
+    .menu:hover .third,
+    .third {
+      transform: translate(40%, 0%) rotate(90deg);
     }
 
     .section-menu {
       background-position-y: -75px;
-
-      @media screen and (max-width: $break-medium) {
-        width: 75px;
-      }
     }
 
     .section-contact {
       transform: translateY(-75px);
-
-      @media screen and (max-width: $break-medium) {
-        padding-left: 75px;
-      }
     }
   }
 
@@ -214,91 +219,93 @@ nav + .container {
 }
 
 .intro {
-  background: url("../images/header.png") center right;
+  background: url('../images/header.png') center right;
   background-size: contain;
 
   > .section {
-    width: 50%;
     height: 100%;
     overflow: hidden;
     position: relative;
+    width: 50%;
   }
 
   h1 {
     display: block;
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
     height: 100%;
+    left: 0;
+    position: absolute;
     text-align: center;
+    top: 0;
+    width: 100%;
 
     .text {
+      display: block;
+      left: 50%;
+      line-height: .9;
+      max-height: 80%;
       position: absolute;
       top: 50%;
-      left: 50%;
       transform: translate(-50%, -50%);
-      line-height: 0.9;
       width: 65%;
-      max-height: 80%;
-      display: block;
+    }
 
-      .name {
-        text-align: center;
-        font-size: 10rem;
-        color: $theme-blue;
-        height: calc(100% - #{15rem * 0.9});
-      }
+    .name {
+      color: $theme-blue;
+      font-size: 10rem;
+      height: calc(100% - #{15rem * .9});
+      text-align: center;
+    }
 
-      .claim {
-        color: $theme-red;
-        font-size: 4rem;
-        letter-spacing: 3px;
-        display: inline-block;
-      }
+    .claim {
+      color: $theme-red;
+      display: inline-block;
+      font-size: 4rem;
+      letter-spacing: 3px;
     }
   }
 
   svg {
+    display: block;
     font-family: "League Gothic", sans-serif;
     height: auto;
-    width: 100%;
-    display: block;
     text-transform: uppercase;
+    width: 100%;
 
-    .cls-1, .cls-6 {
+    .cls-1,
+    .cls-6 {
       fill: none;
     }
 
     .cls-2 {
-      clip-path: url(#clip-path);
+      clip-path: url('#clip-path');
     }
 
     .cls-3 {
-      fill: #fff;
+      fill: $theme-white;
     }
 
     .cls-4 {
-      fill: #fc2d2d;
+      fill: $theme-red;
     }
 
-    .cls-5, .cls-7 {
-      fill: #2949e5;
+    .cls-5,
+    .cls-7 {
+      fill: $theme-blue;
     }
 
     .cls-6 {
-      stroke: #1d1d1b;
+      stroke: $theme-black;
       stroke-miterlimit: 10;
       stroke-width: 1.5px;
     }
   }
 
   img {
+    height: 100%;
+    left: 50%;
     position: absolute;
     top: 50%;
-    left: 50%;
     transform: translate(-50%, -50%);
-    height: 100%;
     width: auto;
   }
 }
@@ -307,24 +314,25 @@ nav + .container {
   overflow: hidden;
 
   svg {
+    display: block;
     font-family: "League Gothic", sans-serif;
     height: auto;
-    width: 100%;
-    display: block;
-    text-transform: uppercase;
     position: relative;
+    text-transform: uppercase;
+    width: 100%;
 
     .cls-1 {
       fill: $theme-red;
     }
 
-    .cls-2, .cls-8 {
+    .cls-2,
+    .cls-8 {
       fill: $theme-blue;
     }
 
     .cls-3 {
-      font-size: 249px;
       fill: none;
+      font-size: 249px;
     }
 
     .cls-4 {
@@ -333,7 +341,8 @@ nav + .container {
       stroke-width: 2px;
     }
 
-    .cls-5, .cls-7 {
+    .cls-5,
+    .cls-7 {
       fill: $theme-white;
     }
 
@@ -350,8 +359,8 @@ nav + .container {
     }
 
     @media screen and (max-width: $break-medium) {
-      width: 140%;
       left: -20%;
+      width: 140%;
     }
   }
 }
@@ -360,47 +369,48 @@ nav + .container {
   position: relative;
 
   img {
-    width: 100%;
-    height: auto;
     display: block;
-    z-index: 10;
+    height: auto;
     position: relative;
+    width: 100%;
+    z-index: 10;
   }
 }
 
 .project-description {
+  background: url('../images/project_description_bg.svg') repeat-y top left, url('../images/project_description_bg.svg') 0 10px repeat-y;
+  min-height: calc(100vw * .42);
   position: relative;
-  background: url("../images/project_description_bg.svg") repeat-y top left, url("../images/project_description_bg.svg") 0 10px repeat-y;
-  min-height: calc(100vw * 0.42);
 
   svg {
+    font-family: "League Gothic", sans-serif;
+    height: auto;
+    left: 0;
     position: absolute;
     top: 0;
-    left: 0;
-    height: auto;
     width: 100%;
     z-index: 1;
-    font-family: "League Gothic", sans-serif;
 
     .cls-1 {
-      fill: #fc2d2d;
+      fill: $theme-red;
     }
 
-    .cls-2, .cls-4 {
-      fill: #fff;
+    .cls-2,
+    .cls-4 {
+      fill: $theme-white;
     }
 
     .cls-3 {
-      fill: #1d1d1b;
+      fill: $theme-black;
     }
 
     .cls-4 {
-      font-size: 265px;
       font-family: "League Gothic", sans-serif;
+      font-size: 265px;
     }
 
     .cls-5 {
-      letter-spacing: 0.03em;
+      letter-spacing: .03em;
     }
 
     .cls-6 {
@@ -408,23 +418,23 @@ nav + .container {
     }
 
     .cls-7 {
-      letter-spacing: -0.01em;
+      letter-spacing: -.01em;
     }
 
     .cls-8 {
-      fill: #2949e5;
+      fill: $theme-blue;
     }
   }
 
   .inner {
-    width: 100%;
-    padding: 8vw 25vw 8vw 35vw;
     color: $theme-white;
     font-size: 1.2 * $font-size-huge;
     line-height: 1.2;
+    padding: 8vw 25vw 8vw 35vw;
     position: relative;
-    z-index: 1;
+    width: 100%;
     word-break: break-word;
+    z-index: 1;
 
     @media screen and (max-width: $break-medium) {
       font-size: 1.2 * $font-size-big;
@@ -436,89 +446,81 @@ nav + .container {
   background-color: $theme-red;
 
   .inner {
-    width: 85%;
-    margin-left: 15%;
     background-color: $theme-white;
-    padding: 8rem 10rem;
     justify-content: center;
+    margin-left: 15%;
+    padding: 8rem 10rem;
+    width: 85%;
 
-    > .section {
+    > .section p {
+      font-weight: $font-weight-regular;
+      margin: 2rem 0 0;
+      padding-left: 2rem;
+      word-break: break-word;
+    }
 
-      p {
-        margin: 2rem 0 0;
-        font-weight: $font-weight-regular;
-        padding-left: 2rem;
-        word-break: break-word;
+    .normal {
+      display: block;
+      font-family: "Fivo Sans", sans-serif;
+      font-size: $font-size-huge;
 
-        .normal {
-          font-family: "Fivo Sans", sans-serif;
-          font-size: $font-size-huge;
-          display: block;
-          @media screen and (max-width: $break-small) {
-            font-size: 1.5rem;
-          }
-        }
-
-        .benefit {
-          font-family: "League Gothic", sans-serif;
-          color: $theme-blue;
-          font-size: 2.5 * $font-size-huge;
-          display: block;
-          text-transform: uppercase;
-          position: relative;
-
-          @media screen and (max-width: $break-small) {
-            font-size: 2.2rem;
-          }
-
-          &::before {
-            content: "*";
-            position: absolute;
-            top: 0;
-            left: -2.5rem;
-            font-size: 6rem;
-          }
-        }
-      }
-
-      &:first-child > p:first-child {
-        margin: 0;
+      @media screen and (max-width: $break-small) {
+        font-size: 1.5rem;
       }
     }
-  }
 
-  @media screen and (max-width: $break-medium) {
-    .inner {
-      padding: 2rem 2.5rem;
+    .benefit {
+      color: $theme-blue;
+      display: block;
+      font-family: "League Gothic", sans-serif;
+      font-size: 2.5 * $font-size-huge;
+      position: relative;
+      text-transform: uppercase;
 
-      > .section {
-        p {
-          .benefit {
-            font-size: 1.5 * $font-size-huge;
+      &::before {
+        content: '*';
+        font-size: 6rem;
+        left: -2.5rem;
+        position: absolute;
+        top: 0;
 
-            &::before {
-              font-size: 4rem;
-              left: -1.5rem;
-            }
-          }
+        @media screen and (max-width: $break-medium) {
+          font-size: 4rem;
+          left: -1.5rem;
         }
       }
+
+      @media screen and (max-width: $break-medium) {
+        font-size: 1.5 * $font-size-huge;
+      }
+
+      @media screen and (max-width: $break-small) {
+        font-size: 2.2rem;
+      }
+    }
+
+    .section:first-child p:first-child {
+      margin: 0;
+    }
+
+    @media screen and (max-width: $break-medium) {
+      padding: 2rem 2.5rem;
     }
   }
 }
 
 .street-artist {
-  position: relative;
   background-color: $theme-blue;
+  position: relative;
 
   img {
-    width: 100%;
-    height: auto;
     display: block;
-    margin-top: -1px;
+    height: auto;
     margin-bottom: -1px;
-    z-index: 10;
+    margin-top: -1px;
     position: relative;
+    width: 100%;
+    z-index: 10;
   }
 }
 
@@ -527,18 +529,21 @@ nav + .container {
   text-align: center;
 
   a {
-    font-size: 2 * $font-size-huge;
     color: $theme-black;
+    display: inline-block;
+    font-size: 2 * $font-size-huge;
     font-weight: $font-weight-heavy;
+    position: relative;
     text-decoration: none;
 
     @media screen and (max-width: $break-small) {
       font-size: 3rem;
     }
 
-    &::before, &::after {
-      content: "×";
+    &::before,
+    &::after {
       color: $theme-red;
+      content: '×';
       font-size: 3 * $font-size-huge;
       font-weight: $font-weight-light;
       position: absolute;
@@ -547,241 +552,192 @@ nav + .container {
     }
 
     &::before {
-      left: -1rem;
+      left: 100%;
     }
 
     &::after {
-      right: -1rem;
+      right: 100%;
     }
   }
 }
 
 .stats {
+  align-items: center;
   background-color: $theme-blue;
-  padding-top: 2rem;
-  padding-bottom: 6rem;
-  position: relative;
   color: $theme-white;
   justify-content: center;
-  align-items: center;
+  padding-bottom: 6rem;
+  padding-top: 2rem;
+  position: relative;
 
   &::after {
     background-color: $theme-blue;
-    display: block;
     content: ' ';
-    width: 5vw;
+    display: block;
     height: 30vw;
     position: absolute;
-    top: calc(100% - 1px);
     right: 0;
+    top: calc(100% - 1px);
+    width: 5vw;
     z-index: 20;
   }
 
   .inner {
-    display: flex;
-    flex-wrap: nowrap;
-    flex-direction: row;
-    justify-content: center;
     align-items: center;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
 
     .and {
-      font-size: 12rem;
+      @include text-outline();
+
+      align-self: normal;
       color: $theme-blue;
       font-family: "League Gothic", sans-serif;
-      align-self: normal;
-
-      @include text-outline();
+      font-size: 12rem;
     }
 
     p {
-      text-align: left;
+      align-items: flex-start;
+      display: flex;
+      flex-wrap: nowrap;
       font-size: $font-size-huge;
       margin: 0;
       padding: 0 1rem;
-      display: flex;
-      flex-wrap: nowrap;
-      align-items: flex-start;
+      text-align: left;
 
       @media screen and (max-width: $break-small) {
         padding: 0 3rem;
       }
+    }
 
-      .number {
-        font-family: "League Gothic", sans-serif;
-        font-weight: $font-weight-regular;
-        font-size: 12rem;
-        margin-right: 1rem;
-        display: block;
-        line-height: 0.8;
-        border-bottom: 0.5rem solid $theme-white;
+    .number {
+      border-bottom: .5rem solid $theme-white;
+      display: block;
+      font-family: "League Gothic", sans-serif;
+      font-size: 12rem;
+      font-weight: $font-weight-regular;
+      line-height: .8;
+      margin-right: 1rem;
 
-        @media screen and (max-width: $break-small) {
-          font-size: 8rem;
-        }
+      @media screen and (max-width: $break-small) {
+        font-size: 8rem;
       }
+    }
 
-      .description {
-        display: block;
-        font-size: 1.2 * $font-size-huge;
-        font-weight: $font-weight-thin;
+    .description {
+      display: block;
+      font-size: 1.2 * $font-size-huge;
+      font-weight: $font-weight-thin;
 
-        &:first-line {
-          font-weight: $font-weight-bold;
-        }
+      &:first-line {
+        font-weight: $font-weight-bold;
       }
     }
 
     @media screen and (max-width: $break-medium) {
+      align-items: start;
       flex-direction: column;
       justify-content: start;
-      align-items: start;
     }
   }
 
   @media screen and (max-width: $break-medium) {
-    padding-top: 4rem;
     padding-bottom: 4rem;
+    padding-top: 4rem;
   }
 }
 
 .vinyl {
-  width: 100%;
   position: relative;
+  width: 100%;
 
   img {
-    width: 100%;
-    height: auto;
     display: block;
-    margin-top: -1px;
+    height: auto;
     margin-bottom: -1px;
-    z-index: 10;
+    margin-top: -1px;
     position: relative;
+    width: 100%;
+    z-index: 10;
   }
 }
 
 .resources {
-  background-color: $theme-red;
-  width: 100%;
-  position: relative;
-  overflow: hidden;
-
-  &::before {
-    background-color: $theme-blue;
-    display: block;
-    content: ' ';
-    width: 5vw;
-    height: 30vw;
-    position: absolute;
-    top: calc(-30vw + 1px);
-    left: 0;
-    z-index: 10;
-  }
-
+  $before-inner-width: 20vw;
   $title-height: 8rem;
   $title-offset-x: 5.6rem;
   $title-offset-y: 1.1rem;
-  $before-inner-width: 20vw;
+  background-color: $theme-red;
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+
+  &::before {
+    background-color: $theme-blue;
+    content: ' ';
+    display: block;
+    height: 30vw;
+    left: 0;
+    position: absolute;
+    top: calc(-30vw + 1px);
+    width: 5vw;
+    z-index: 10;
+  }
 
   .before-inner {
     background-color: $theme-black;
-    display: block;
     content: ' ';
-    width: $before-inner-width;
+    display: block;
     height: 100%;
+    left: 5vw;
+    overflow: hidden;
     position: absolute;
     top: 0;
-    left: 5vw;
+    width: $before-inner-width;
     z-index: 1;
-    overflow: hidden;
 
     .title-clone {
-      transform: rotate(-10deg);
+      left: calc(100% - 5.5rem);
       position: absolute;
       top: -$title-offset-y;
-      left: calc(100% - 5.5rem);
+      transform: rotate(-10deg);
     }
   }
 
   .inner {
     background-color: $theme-blue;
     flex-wrap: wrap;
-    padding: (6rem + $title-height + $title-offset-y) 6rem 6rem;
-    width: 75vw;
     margin-left: 25vw;
+    padding: (6rem + $title-height + $title-offset-y) 6rem 6rem;
     position: relative;
+    width: 75vw;
 
     .title {
-      transform: rotate(-10deg);
+      left: -$title-offset-x;
       position: absolute;
       top: -$title-offset-y;
-      left: -$title-offset-x;
-
-      .blue {
-        color: $theme-blue;
-      }
+      transform: rotate(-10deg);
     }
 
-    .card {
-      padding-left: 4rem;
-      position: relative;
-
-      > .header-icon {
-        max-width: 3rem;
-        height: 2.7rem;
-        position: absolute;
-        top: 0.3rem;
-        left: 0;
-
-        @media screen and (max-width: $break-medium) {
-          max-width: 1.5rem;
-          height: 1.35rem;
-          position: absolute;
-          top: 0.3rem;
-          left: 0;
-        }
-      }
-
-      > h3 {
-        color: $theme-white;
-        font-size: 3.5rem;
-        line-height: 1;
-        font-weight: $font-weight-regular;
-        margin: 0 0 0.5rem;
-
-        @media screen and (max-width: $break-medium) {
-          font-size: 2rem;
-        }
-      }
-
-      > p {
-        margin: 0 0 2rem;
-        padding-right: 40%;
-        font-weight: $font-weight-medium;
-
-        @media screen and (max-width: $break-small) {
-          padding-right: 0;
-          font-size: $font-size;
-          padding-left: 2rem;
-        }
-      }
-
-      &:last-of-type {
-        width: 100%;
-      }
-
-      @media screen and (max-width: $break-medium) {
-        padding-right: 0;
-        padding-left: 2rem;
-      }
+    .blue {
+      color: $theme-blue;
     }
 
     > p {
       color: $theme-white;
+      font-size: $font-size-huge;
+      font-weight: $font-weight-light;
+      line-height: 1.2;
       padding-left: 4rem;
       padding-right: 15%;
-      font-weight: $font-weight-light;
-      font-size: $font-size-huge;
-      line-height: 1.2;
+
+      @media screen and (max-width: $break-medium) {
+        font-size: $font-size-base;
+        padding-left: 2rem;
+        padding-right: 0;
+      }
     }
 
     @media screen and (max-width: $break-medium) {
@@ -789,89 +745,145 @@ nav + .container {
     }
   }
 
-  .before-inner, .inner {
-    .title-clone, .title > h2 {
-      font-size: $title-height;
-      font-weight: $font-weight-regular;
-      line-height: 0.8;
+  .title-clone,
+  .title > h2 {
+    color: $theme-white;
+    font-family: "League Gothic", sans-serif;
+    font-size: $title-height;
+    font-weight: $font-weight-regular;
+    line-height: .8;
+    margin: 0;
+    text-transform: uppercase;
+  }
+
+  .card {
+    padding-left: 4rem;
+    position: relative;
+
+    .header-icon {
+      height: 2.7rem;
+      left: 0;
+      max-width: 3rem;
+      position: absolute;
+      top: .3rem;
+
+      @media screen and (max-width: $break-medium) {
+        height: 1.35rem;
+        left: 0;
+        max-width: 1.5rem;
+        position: absolute;
+        top: .3rem;
+      }
+    }
+
+    h3 {
       color: $theme-white;
-      margin: 0;
-      text-transform: uppercase;
-      font-family: "League Gothic", sans-serif;
+      font-size: 3.5rem;
+      font-weight: $font-weight-regular;
+      line-height: 1;
+      margin: 0 0 .5rem;
+
+      @media screen and (max-width: $break-medium) {
+        font-size: 2rem;
+      }
+    }
+
+    p {
+      font-size: $font-size-big;
+      font-weight: $font-weight-medium;
+      margin: 0 0 2rem;
+      padding-left: 2rem;
+      padding-right: 40%;
+
+      @media screen and (max-width: $break-small) {
+        font-size: $font-size-base;
+        padding-left: 0;
+        padding-right: 0;
+      }
+    }
+
+    &:last-of-type {
+      width: 100%;
+    }
+
+    @media screen and (max-width: $break-medium) {
+      padding-left: 2rem;
+      padding-right: 0;
     }
   }
 }
 
 .cta-wrapper {
-  width: 100%;
-  padding-top: 6rem;
-  padding-bottom: 6rem;
-  text-align: center;
   overflow: hidden;
+  padding-bottom: 6rem;
+  padding-top: 6rem;
+  text-align: center;
+  width: 100%;
 
   .cta-button {
     background-color: $theme-blue;
-    padding: 1.5rem 1.5rem 1.2rem;
-    text-transform: uppercase;
-    text-decoration: none;
     display: inline-block;
-    line-height: 1;
     font-size: 1.2 * $font-size-huge;
     font-weight: $font-weight-bold;
+    line-height: 1;
+    padding: 1.5rem 1.5rem 1.2rem;
+    text-decoration: none;
+    text-transform: uppercase;
   }
 
   .cta-elements {
-    width: 100%;
     display: flex;
     flex-wrap: nowrap;
     justify-content: center;
     margin-top: 2rem;
+    width: 100%;
 
     .cta-element {
       color: $theme-red;
       padding-left: 3.8rem;
       padding-right: 3.8rem;
+    }
 
-      p {
-        font-size: 5 * $font-size-big;
-        line-height: 1;
-        margin: 0;
-        font-family: "League Gothic", sans-serif;
-        text-transform: uppercase;
+    p {
+      font-family: "League Gothic", sans-serif;
+      font-size: 5 * $font-size-big;
+      line-height: 1;
+      margin: 0;
+      text-transform: uppercase;
 
-        @media screen and (max-width: $break-small) {
-          font-size: 6rem;
-        }
+      @media screen and (max-width: $break-small) {
+        font-size: 6rem;
       }
+    }
 
-      a {
-        font-size: $font-size-big;
-        color: $theme-blue;
-        text-decoration: none;
-        font-weight: $font-weight-bold;
-      }
+    a {
+      color: $theme-blue;
+      font-size: $font-size-big;
+      font-weight: $font-weight-bold;
+      text-decoration: none;
     }
   }
 }
 
 footer {
-  background-color: $theme-black;
-  justify-content: normal;
   align-items: stretch;
-  width: 100%;
+  background-color: $theme-black;
   color: $theme-white;
-  text-align: center;
+  justify-content: normal;
   padding-bottom: 2rem;
+  text-align: center;
+  width: 100%;
 
   p {
-    margin: 0;
-    line-height: 1.2;
     font-size: $font-size-big;
+    line-height: 1.2;
+    margin: 0;
   }
 
-  .imprint, .notices {
-    padding-top: 3rem;
+  .imprint,
+  .notices {
     padding-bottom: 3rem;
+    padding-top: 3rem;
     width: 50%;
   }
 
@@ -885,11 +897,12 @@ footer {
   }
 
   .notices {
+    background-color: $theme-red;
     display: flex;
     flex-wrap: wrap;
-    background-color: $theme-red;
 
-    .copyright, .origin {
+    .copyright,
+    .origin {
       width: 100%;
     }
 
@@ -900,175 +913,177 @@ footer {
 
     .origin {
       align-self: end;
-      margin-top: auto;
       font-weight: $font-weight-black;
       line-height: 2;
+      margin-top: auto;
+    }
 
-      .icon {
-        width: $font-size-huge;
-        height: $font-size-huge;
-        vertical-align: text-bottom;
-      }
+    .icon {
+      height: $font-size-huge;
+      vertical-align: text-bottom;
+      width: $font-size-huge;
     }
   }
 }
 
 .big-nav {
-  position: fixed;
-  z-index: 1000;
   background-color: $theme-black;
-  top: 0;
-  left: 0;
-  width: 100%;
   height: 100%;
+  left: 0;
+  position: fixed;
+  top: 0;
   transform: translateY(-100%);
   transition: transform .3s ease-in-out;
+  width: 100%;
+  z-index: 1000;
 
   ul {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 100%;
-    transform: translate(-50%, -50%);
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
+    align-items: center;
     color: $theme-white;
-    font-size: 5rem;
-    font-family: "League Gothic", sans-serif;
-    text-transform: uppercase;
-    text-align: center;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    font-family: "League Gothic", sans-serif;
+    font-size: 5rem;
     justify-content: center;
+    left: 50%;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    text-align: center;
+    text-transform: uppercase;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
 
     @media screen and (max-width: $break-medium) {
       font-size: 3.5rem;
     }
+  }
 
-    li {
-      cursor: pointer;
-      position: relative;
-      display: inline-flex;
+  li {
+    cursor: pointer;
+    display: inline-flex;
+    position: relative;
 
-      @media screen and (min-width: $break-medium) {
+    @media screen and (min-width: $break-medium) {
+      &::before,
+      &::after {
+        background-color: $theme-red;
+        color: $theme-white;
+        content: ' ';
+        display: block;
+        height: 1rem;
+        left: 50%;
+        line-height: 5rem;
+        pointer-events: none;
+        position: absolute;
+        top: 50%;
+        transition: opacity .2s ease-in-out, transform .2s ease-in-out;
+        z-index: 1;
+      }
 
-        &::before, &::after {
-          content: ' ';
-          color: white;
-          display: block;
-          line-height: 5rem;
-          position: absolute;
-          height: 1rem;
-          background-color: $theme-red;
-          top: 50%;
-          left: 50%;
-          z-index: 1;
-          transition: opacity .2s ease-in-out, transform .2s ease-in-out;
-          pointer-events: none;
+      &:nth-child(1) {
+        &::before {
+          transform: translate(-200%, -50%);
+          width: 50px;
         }
 
-        &:nth-child(1) {
-          &::before {
-            width: 50px;
-            transform: translate(-200%, -50%);
-          }
-
-          &::after {
-            width: 100px;
-            transform: translate(10%, -50%);
-          }
-        }
-
-        &:nth-child(2) {
-          &::before {
-            width: 150px;
-            transform: translate(-200%, -50%);
-          }
-
-          &::after {
-            width: 150px;
-            transform: translate(40%, -50%);
-          }
-        }
-
-        &:nth-child(3) {
-          &::before {
-            width: 75px;
-            transform: translate(-180%, -50%);
-          }
-
-          &::after {
-            width: 100px;
-            transform: translate(30%, -50%);
-          }
-        }
-
-        &:nth-child(4) {
-          &::before {
-            width: 150px;
-            transform: translate(-200%, -50%);
-          }
-
-          &::after {
-            width: 250px;
-            transform: translate(10%, -50%);
-          }
-        }
-
-        &:hover {
-          &::before, &::after {
-            opacity: 0;
-          }
-
-          &::before {
-            transform: translate(-400%, -50%);
-          }
-
-          &::after {
-            transform: translate(400%, -50%);
-          }
+        &::after {
+          transform: translate(10%, -50%);
+          width: 100px;
         }
       }
 
-      a {
-        text-decoration: none;
-        color: $theme-blue;
-        transition: color .2s ease-in-out;
-        position: relative;
-        z-index: 0;
+      &:nth-child(2) {
+        &::before {
+          transform: translate(-200%, -50%);
+          width: 150px;
+        }
 
+        &::after {
+          transform: translate(40%, -50%);
+          width: 150px;
+        }
+      }
+
+      &:nth-child(3) {
+        &::before {
+          transform: translate(-180%, -50%);
+          width: 75px;
+        }
+
+        &::after {
+          transform: translate(30%, -50%);
+          width: 100px;
+        }
+      }
+
+      &:nth-child(4) {
+        &::before {
+          transform: translate(-200%, -50%);
+          width: 150px;
+        }
+
+        &::after {
+          transform: translate(10%, -50%);
+          width: 250px;
+        }
+      }
+
+      &:hover {
         &::before, &::after {
-          content: '×';
-          color: white;
-          display: block;
-          width: 2rem;
-          height: 5rem;
-          top: 50%;
-          line-height: 5rem;
-          position: absolute;
           opacity: 0;
-          transition: opacity .2s ease-in-out, transform .2s ease-in-out;
         }
 
-        &:before {
-          transform: translate(100%, -50%) scale(.1);
-          left: -4rem;
+        &::before {
+          transform: translate(-400%, -50%);
         }
 
-        &:after {
-          transform: translate(-100%, -50%) scale(.1);
-          right: -3rem;
+        &::after {
+          transform: translate(400%, -50%);
         }
+      }
+    }
 
-        &:hover {
-          color: $theme-white;
+    a {
+      color: $theme-blue;
+      position: relative;
+      text-decoration: none;
+      transition: color .2s ease-in-out;
+      z-index: 0;
 
-          &::before, &::after {
-            transform: translate(0%, -50%) scale(1);
-            opacity: 1;
-          }
+      &::before,
+      &::after {
+        color: $theme-white;
+        content: '×';
+        display: block;
+        height: 5rem;
+        line-height: 5rem;
+        opacity: 0;
+        position: absolute;
+        top: 50%;
+        transition: opacity .2s ease-in-out, transform .2s ease-in-out;
+        width: 2rem;
+      }
+
+      &:before {
+        left: -4rem;
+        transform: translate(100%, -50%) scale(.1);
+      }
+
+      &:after {
+        right: -3rem;
+        transform: translate(-100%, -50%) scale(.1);
+      }
+
+      &:hover {
+        color: $theme-white;
+
+        &::before,
+        &::after {
+          opacity: 1;
+          transform: translate(0%, -50%) scale(1);
         }
       }
     }
