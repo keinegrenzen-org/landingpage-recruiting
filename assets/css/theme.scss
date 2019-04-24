@@ -549,6 +549,10 @@ nav + .container {
       position: absolute;
       top: 50%;
       transform: translateY(-50%);
+
+      @media screen and (max-width: $break-medium) {
+        display: none;
+      }
     }
 
     &::before {
@@ -792,12 +796,10 @@ nav + .container {
       font-size: $font-size-big;
       font-weight: $font-weight-medium;
       margin: 0 0 2rem;
-      padding-left: 2rem;
       padding-right: 40%;
 
       @media screen and (max-width: $break-small) {
         font-size: $font-size-base;
-        padding-left: 0;
         padding-right: 0;
       }
     }
