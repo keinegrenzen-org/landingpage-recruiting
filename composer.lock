@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "4c5c1f7d9e0c24fe658fccc920767c32",
+    "content-hash": "bac0159a3bae56a4af63534a39cdc2b9",
     "packages": [
         {
             "name": "doctrine/annotations",
@@ -4275,16 +4275,16 @@
         },
         {
             "name": "sebastian/environment",
-            "version": "4.1.0",
+            "version": "4.2.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/environment.git",
-                "reference": "6fda8ce1974b62b14935adc02a9ed38252eca656"
+                "reference": "3095910f0f0fb155ac4021fc51a4a7a39ac04e8a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/environment/zipball/6fda8ce1974b62b14935adc02a9ed38252eca656",
-                "reference": "6fda8ce1974b62b14935adc02a9ed38252eca656",
+                "url": "https://api.github.com/repos/sebastianbergmann/environment/zipball/3095910f0f0fb155ac4021fc51a4a7a39ac04e8a",
+                "reference": "3095910f0f0fb155ac4021fc51a4a7a39ac04e8a",
                 "shasum": ""
             },
             "require": {
@@ -4299,7 +4299,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "4.1-dev"
+                    "dev-master": "4.2-dev"
                 }
             },
             "autoload": {
@@ -4324,7 +4324,7 @@
                 "environment",
                 "hhvm"
             ],
-            "time": "2019-02-01T05:27:49+00:00"
+            "time": "2019-04-25T07:55:20+00:00"
         },
         {
             "name": "sebastian/exporter",
@@ -5278,7 +5278,8 @@
     "prefer-lowest": false,
     "platform": {
         "php": "^7.1.3",
-        "ext-iconv": "*"
+        "ext-iconv": "*",
+        "ext-curl": "*"
     },
     "platform-dev": []
 }
